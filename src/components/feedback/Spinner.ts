@@ -26,8 +26,8 @@ export type SpinnerElement = SVGSVGElement & SpinnerApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const spinnerCss = `
-.socle-spinner { animation: socle-spin 0.8s linear infinite; color: var(--socle-muted-foreground) }
-@keyframes socle-spin { to { transform: rotate(360deg) } }
+.linteau-spinner { animation: linteau-spin 0.8s linear infinite; color: var(--linteau-muted-foreground) }
+@keyframes linteau-spin { to { transform: rotate(360deg) } }
 `
 
 /** Creates a small, continuously rotating loading indicator. */

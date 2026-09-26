@@ -64,16 +64,16 @@ export type CommandElement = HTMLDivElement & CommandApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const commandCss = `
-.socle-command-overlay { position: fixed; inset: 0; background: color-mix(in oklch, black 60%, transparent); display: flex; align-items: flex-start; justify-content: center; padding-top: 15vh; z-index: 1500; backdrop-filter: blur(4px) }
-.socle-command-panel { width: min(560px, 92vw); max-height: 60vh; display: flex; flex-direction: column; background: var(--socle-card); border: 1px solid var(--socle-border); border-radius: var(--socle-radius-lg); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); overflow: hidden }
-.socle-command-input-wrap { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--socle-border) }
-.socle-command-input { flex: 1; background: transparent; border: none; outline: none; color: var(--socle-foreground); font-size: 14px; font-family: inherit }
-.socle-command-list { overflow-y: auto; padding: 6px; flex: 1 }
-.socle-command-group-heading { padding: 6px 8px 4px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--socle-muted-foreground) }
-.socle-command-item { display: flex; align-items: center; gap: 8px; padding: 8px; border-radius: var(--socle-radius-sm); font-size: 13px; color: var(--socle-foreground); cursor: pointer }
-.socle-command-item-highlighted { background: var(--socle-accent) }
-.socle-command-item-disabled { opacity: 0.5; cursor: not-allowed }
-.socle-command-empty { padding: 24px; text-align: center; font-size: 12px; color: var(--socle-muted-foreground) }
+.linteau-command-overlay { position: fixed; inset: 0; background: color-mix(in oklch, black 60%, transparent); display: flex; align-items: flex-start; justify-content: center; padding-top: 15vh; z-index: 1500; backdrop-filter: blur(4px) }
+.linteau-command-panel { width: min(560px, 92vw); max-height: 60vh; display: flex; flex-direction: column; background: var(--linteau-card); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); overflow: hidden }
+.linteau-command-input-wrap { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--linteau-border) }
+.linteau-command-input { flex: 1; background: transparent; border: none; outline: none; color: var(--linteau-foreground); font-size: 14px; font-family: inherit }
+.linteau-command-list { overflow-y: auto; padding: 6px; flex: 1 }
+.linteau-command-group-heading { padding: 6px 8px 4px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--linteau-muted-foreground) }
+.linteau-command-item { display: flex; align-items: center; gap: 8px; padding: 8px; border-radius: var(--linteau-radius-sm); font-size: 13px; color: var(--linteau-foreground); cursor: pointer }
+.linteau-command-item-highlighted { background: var(--linteau-accent) }
+.linteau-command-item-disabled { opacity: 0.5; cursor: not-allowed }
+.linteau-command-empty { padding: 24px; text-align: center; font-size: 12px; color: var(--linteau-muted-foreground) }
 `
 
 /**

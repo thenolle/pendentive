@@ -13,7 +13,7 @@ export function isBrowser(): boolean {
  * @param componentName - Name shown in the thrown error, e.g. `'Button'`.
  */
 export function assertDom(componentName: string): void {
-  if (!isBrowser()) throw new Error(`[socle] "${componentName}" requires a DOM environment (a browser, or Node/Bun with a DOM shim such as 'happy-dom' or 'linkedom'). No 'document' was found.`)
+  if (!isBrowser()) throw new Error(`[linteau] "${componentName}" requires a DOM environment (a browser, or Node/Bun with a DOM shim such as 'happy-dom' or 'linkedom'). No 'document' was found.`)
 }
 
 /** Tiny `document.createElement` wrapper that also applies an initial class name. */

@@ -6,10 +6,10 @@ await build({
   minify: true,
   sourcemap: true,
   format: 'iife',
-  globalName: 'Socle',
+  globalName: 'Linteau',
   target: 'es2022',
   platform: 'browser',
-  outfile: 'dist/socle.global.js'
+  outfile: 'dist/linteau.global.js'
 })
 
-console.log('[socle] browser bundle built -> dist/socle.global.js')
+console.log('[linteau] browser bundle built -> dist/linteau.global.js')

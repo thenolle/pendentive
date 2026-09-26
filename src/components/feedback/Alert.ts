@@ -36,14 +36,14 @@ export type AlertElement = HTMLDivElement & AlertApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const alertCss = `
-.socle-alert { display: flex; gap: 10px; padding: 12px; border-radius: var(--socle-radius-lg); border: 1px solid var(--socle-border); background: var(--socle-muted) }
-.socle-alert-success { border-color: var(--socle-success) }
-.socle-alert-warning { border-color: var(--socle-warning) }
-.socle-alert-destructive { border-color: var(--socle-destructive) }
-.socle-alert-body { flex: 1 }
-.socle-alert-title { font-size: 13px; font-weight: 600; margin-bottom: 2px }
-.socle-alert-description { font-size: 12px; color: var(--socle-muted-foreground) }
-.socle-alert-close { background: transparent; border: none; color: var(--socle-muted-foreground); cursor: pointer; display: flex; align-self: flex-start }
+.linteau-alert { display: flex; gap: 10px; padding: 12px; border-radius: var(--linteau-radius-lg); border: 1px solid var(--linteau-border); background: var(--linteau-muted) }
+.linteau-alert-success { border-color: var(--linteau-success) }
+.linteau-alert-warning { border-color: var(--linteau-warning) }
+.linteau-alert-destructive { border-color: var(--linteau-destructive) }
+.linteau-alert-body { flex: 1 }
+.linteau-alert-title { font-size: 13px; font-weight: 600; margin-bottom: 2px }
+.linteau-alert-description { font-size: 12px; color: var(--linteau-muted-foreground) }
+.linteau-alert-close { background: transparent; border: none; color: var(--linteau-muted-foreground); cursor: pointer; display: flex; align-self: flex-start }
 `
 
 const defaultIconByVariant: Record<AlertVariant, IconInput> = {

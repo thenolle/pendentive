@@ -4,18 +4,18 @@
 <head>
   <meta charset='UTF-8' />
   <meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover' />
-  <meta name='description' content='Socle -- a zero-dependency, browser/Node/Bun UI component library. Real DOM elements with attached controller methods, no framework required.' />
+  <meta name='description' content='Linteau -- a zero-dependency, browser/Node/Bun UI component library. Real DOM elements with attached controller methods, no framework required.' />
   <meta name='theme-color' content='#0e0e0e' />
   <meta name='color-scheme' content='dark light' />
-  <title>Socle -- UI component library</title>
+  <title>Linteau -- UI component library</title>
   <link rel='icon' type='image/svg+xml' href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%22-.1em%22 y=%22.9em%22 font-size=%2290%22>📦</text></svg>' />
   <style>
     html,
     body {
       margin: 0;
       height: 100%;
-      background: var(--socle-background, #171717);
-      color: var(--socle-foreground, #f0f0f0);
+      background: var(--linteau-background, #171717);
+      color: var(--linteau-foreground, #f0f0f0);
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       -webkit-text-size-adjust: 100%;
     }
@@ -25,7 +25,7 @@
     }
 
     :focus-visible {
-      outline: 2px solid var(--socle-ring, #888);
+      outline: 2px solid var(--linteau-ring, #888);
       outline-offset: 2px;
     }
 
@@ -49,8 +49,8 @@
       align-items: center;
       gap: 12px;
       padding: 12px max(20px, env(safe-area-inset-left)) 12px max(20px, env(safe-area-inset-left));
-      border-bottom: 1px solid var(--socle-border);
-      background: var(--socle-card);
+      border-bottom: 1px solid var(--linteau-border);
+      background: var(--linteau-card);
       flex-wrap: wrap;
     }
 
@@ -76,7 +76,7 @@
       flex-shrink: 0;
       padding: 16px;
       overflow-y: auto;
-      border-right: 1px solid var(--socle-border);
+      border-right: 1px solid var(--linteau-border);
       max-height: 100vh;
       max-height: 100dvh;
       position: sticky;
@@ -106,7 +106,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--socle-muted-foreground);
+      color: var(--linteau-muted-foreground);
       margin-top: 8px;
     }
 
@@ -129,23 +129,23 @@
 
     .demo-note {
       font-size: 13px;
-      color: var(--socle-muted-foreground);
+      color: var(--linteau-muted-foreground);
       margin: 0 0 6px;
     }
 
     .swatch-preview {
       width: 100%;
       height: 32px;
-      border-radius: var(--socle-radius-sm);
-      border: 1px solid var(--socle-border);
+      border-radius: var(--linteau-radius-sm);
+      border: 1px solid var(--linteau-border);
     }
 
     .ctx-zone {
-      border: 1px dashed var(--socle-border);
-      border-radius: var(--socle-radius-md);
+      border: 1px dashed var(--linteau-border);
+      border-radius: var(--linteau-radius-md);
       padding: 24px;
       text-align: center;
-      color: var(--socle-muted-foreground);
+      color: var(--linteau-muted-foreground);
       font-size: 12px;
     }
 
@@ -161,10 +161,10 @@
       align-items: center;
       gap: 6px;
       padding: 10px 4px;
-      border: 1px solid var(--socle-border);
-      border-radius: var(--socle-radius-md);
+      border: 1px solid var(--linteau-border);
+      border-radius: var(--linteau-radius-md);
       font-size: 10px;
-      color: var(--socle-muted-foreground);
+      color: var(--linteau-muted-foreground);
       word-break: break-word;
       text-align: center;
     }
@@ -178,9 +178,9 @@
       margin: 0;
       padding: 12px;
       padding-right: 44px;
-      background: var(--socle-background);
-      border: 1px solid var(--socle-border);
-      border-radius: var(--socle-radius-md);
+      background: var(--linteau-background);
+      border: 1px solid var(--linteau-border);
+      border-radius: var(--linteau-radius-md);
       font-family: ui-monospace, SFMono-Regular, monospace;
       font-size: 11.5px;
       overflow-x: auto;
@@ -235,9 +235,9 @@
 
 <body>
   <div id='app'></div>
-  <script src='./dist/socle.global.js'></script>
+  <script src='./dist/linteau.global.js'></script>
   <script>
-    const { Button, ButtonGroup, Section, Card, Separator, TextField, TextArea, NumberField, ColorField, Checkbox, RadioGroup, Switch, Slider, RangeSlider, Select, Combobox, ChipInput, FileDropzone, DatePicker, Badge, Avatar, ModeCard, Spinner, ProgressBar, Skeleton, toast, Alert, Tooltip, Dialog, Drawer, Popover, DropdownMenu, ContextMenu, Tabs, Accordion, Breadcrumb, Pagination, Table, List, Tree, Icon, icons, setTheme, resetTheme, getTheme } = Socle
+    const { Button, ButtonGroup, Section, Card, Separator, TextField, TextArea, NumberField, ColorField, Checkbox, RadioGroup, Switch, Slider, RangeSlider, Select, Combobox, ChipInput, FileDropzone, DatePicker, Badge, Avatar, ModeCard, Spinner, ProgressBar, Skeleton, toast, Alert, Tooltip, Dialog, Drawer, Popover, DropdownMenu, ContextMenu, Tabs, Accordion, Breadcrumb, Pagination, Table, List, Tree, Icon, icons, setTheme, resetTheme, getTheme } = Linteau
 
     /**
      * Renders `text` as a scrollable code block with a copy-to-clipboard button.
@@ -279,7 +279,7 @@
     const header = document.createElement('header')
     header.id = 'app-header'
     const title = document.createElement('h1')
-    title.textContent = 'Socle'
+    title.textContent = 'Linteau'
     const versionBadge = Badge('v0.1.1', { variant: 'outline' })
     versionBadge.className += ' header-optional'
     const spacer = document.createElement('div')
@@ -299,7 +299,7 @@
       size: 'sm',
       icon: icons.externalLink,
       iconPosition: 'end',
-      onClick: () => window.open('https://github.com/thenolle/socle', '_blank')
+      onClick: () => window.open('https://github.com/thenolle/linteau', '_blank')
     })
     githubButton.className += ' header-optional'
     const menuButton = Button('', { variant: 'ghost', size: 'sm', icon: icons.menu })
@@ -330,7 +330,7 @@
               container.append(row)
             },
             source: `
-import { Button } from 'socle'
+import { Button } from 'linteau'
 
 const button = Button('Save', {
   variant: 'default',
@@ -808,7 +808,7 @@ const line = Skeleton({ width: '100%', height: 14 })
               container.append(row)
             },
             source: `
-import { toast } from 'socle'
+import { toast } from 'linteau'
 
 toast.show({ title: 'Saved', description: 'Your changes were saved.', variant: 'success' })
 `
@@ -1004,7 +1004,7 @@ const tabs = Tabs({
             description: 'A set of collapsible sections, single- or multi-open.',
             render(container) {
               const c1 = document.createElement('div')
-              c1.textContent = 'Socle has zero runtime dependencies and injects its own CSS.'
+              c1.textContent = 'Linteau has zero runtime dependencies and injects its own CSS.'
               const c2 = document.createElement('div')
               c2.textContent = 'Yes -- every component works identically from plain JavaScript.'
               container.append(Accordion({
@@ -1145,7 +1145,7 @@ const tree = Tree({
               container.append(grid)
             },
             source: `
-import { Icon, icons } from 'socle/svg'
+import { Icon, icons } from 'linteau/svg'
 
 const checkIcon = Icon(icons.check, 18)
 const myIcon = Icon(myLucideCloneIcons.rocket, 18)
@@ -1173,8 +1173,8 @@ const myIcon = Icon(myLucideCloneIcons.rocket, 18)
     })
 
     /**
-     * Filters the sidebar's rendered rows by label text. Targets Socle's own
-     * namespaced, stable classNames (`.socle-list-item*`) -- safe to rely on
+     * Filters the sidebar's rendered rows by label text. Targets Linteau's own
+     * namespaced, stable classNames (`.linteau-list-item*`) -- safe to rely on
      * since every classname in the library is prefixed and documented.
      */
     const navSearch = TextField({
@@ -1182,8 +1182,8 @@ const myIcon = Icon(myLucideCloneIcons.rocket, 18)
       placeholder: 'Search components...',
       onChange: (value) => {
         const query = value.trim().toLowerCase()
-        nav.querySelectorAll('.socle-list-item').forEach((row) => {
-          const label = row.querySelector('.socle-list-item-label')?.textContent.toLowerCase() ?? ''
+        nav.querySelectorAll('.linteau-list-item').forEach((row) => {
+          const label = row.querySelector('.linteau-list-item-label')?.textContent.toLowerCase() ?? ''
           row.classList.toggle('nav-item-hidden', query.length > 0 && !label.includes(query))
         })
       }

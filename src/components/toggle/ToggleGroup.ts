@@ -51,9 +51,9 @@ export interface ToggleGroupApi {
 /** A `ToggleGroup` is a real `HTMLDivElement` extended with `ToggleGroupApi`. */
 export type ToggleGroupElement = HTMLDivElement & ToggleGroupApi
 
-/** This component's own CSS. Depends on `.socle-toggle`, which `Toggle()` registers itself the moment `ToggleGroup` renders its first item. */
+/** This component's own CSS. Depends on `.linteau-toggle`, which `Toggle()` registers itself the moment `ToggleGroup` renders its first item. */
 export const toggleGroupCss = `
-.socle-toggle-group { display: inline-flex; gap: 2px; padding: 2px; border: 1px solid var(--socle-border); border-radius: var(--socle-radius-sm) }
+.linteau-toggle-group { display: inline-flex; gap: 2px; padding: 2px; border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-sm) }
 `
 
 /** Creates a group of toggle buttons supporting single- or multiple-selection, useful for view/alignment/format pickers. */

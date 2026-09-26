@@ -40,15 +40,15 @@ export type SectionElement = HTMLDivElement & SectionApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const sectionCss = `
-.socle-section { border: 1px solid var(--socle-border); border-radius: var(--socle-radius-lg); background: var(--socle-muted); overflow: hidden; width: 100% }
-.socle-section-header { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--socle-border); color: var(--socle-muted-foreground); cursor: default }
-.socle-section-header.socle-section-collapsible { cursor: pointer }
-.socle-section-header h3 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; flex: 1 }
-.socle-section-actions { display: flex; align-items: center; gap: 6px }
-.socle-section-body { padding: 12px; display: flex; flex-direction: column; gap: 12px }
-.socle-section-body.socle-collapsed { display: none }
-.socle-section-chevron { transition: transform 150ms ease }
-.socle-section-chevron.socle-collapsed { transform: rotate(-90deg) }
+.linteau-section { border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg); background: var(--linteau-muted); overflow: hidden; width: 100% }
+.linteau-section-header { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--linteau-border); color: var(--linteau-muted-foreground); cursor: default }
+.linteau-section-header.linteau-section-collapsible { cursor: pointer }
+.linteau-section-header h3 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; flex: 1 }
+.linteau-section-actions { display: flex; align-items: center; gap: 6px }
+.linteau-section-body { padding: 12px; display: flex; flex-direction: column; gap: 12px }
+.linteau-section-body.linteau-collapsed { display: none }
+.linteau-section-chevron { transition: transform 150ms ease }
+.linteau-section-chevron.linteau-collapsed { transform: rotate(-90deg) }
 `
 
 /** Creates a titled, bordered container -- the primary layout grouping primitive of the library. */

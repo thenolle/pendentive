@@ -47,11 +47,11 @@ export type SliderElement = HTMLDivElement & SliderApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const sliderCss = `
-.socle-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px; background: linear-gradient(to right, var(--socle-primary) 0%, var(--socle-primary) var(--socle-fill, 0%), var(--socle-secondary) var(--socle-fill, 0%), var(--socle-secondary) 100%); outline: none; transition: background 120ms ease }
-.socle-slider:disabled { opacity: 0.5 }
-.socle-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--socle-primary); border: 2px solid var(--socle-card); box-shadow: 0 0 0 1px var(--socle-border); cursor: pointer; transition: transform 120ms ease }
-.socle-slider::-webkit-slider-thumb:hover { transform: scale(1.15) }
-.socle-slider::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--socle-primary); border: 2px solid var(--socle-card); cursor: pointer }
+.linteau-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px; background: linear-gradient(to right, var(--linteau-primary) 0%, var(--linteau-primary) var(--linteau-fill, 0%), var(--linteau-secondary) var(--linteau-fill, 0%), var(--linteau-secondary) 100%); outline: none; transition: background 120ms ease }
+.linteau-slider:disabled { opacity: 0.5 }
+.linteau-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--linteau-primary); border: 2px solid var(--linteau-card); box-shadow: 0 0 0 1px var(--linteau-border); cursor: pointer; transition: transform 120ms ease }
+.linteau-slider::-webkit-slider-thumb:hover { transform: scale(1.15) }
+.linteau-slider::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--linteau-primary); border: 2px solid var(--linteau-card); cursor: pointer }
 `
 
 /** Creates a labeled range slider with a live value readout, supporting controlled and uncontrolled usage. */
@@ -82,7 +82,7 @@ export function Slider(options: SliderOptions): SliderElement {
   input.disabled = options.disabled ?? false
   function updateFill(v: number): void {
     const percent = ((v - min) / (max - min)) * 100
-    input.style.setProperty('--socle-fill', `${percent}%`)
+    input.style.setProperty('--linteau-fill', `${percent}%`)
   }
   updateFill(value)
   const listener = (): void => {

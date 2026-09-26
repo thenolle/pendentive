@@ -39,7 +39,7 @@ export type PopoverElement = HTMLDivElement & PopoverApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const popoverCss = `
-.socle-popover { position: fixed; z-index: 1200; background: var(--socle-card); border: 1px solid var(--socle-border); border-radius: var(--socle-radius-md); padding: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) }
+.linteau-popover { position: fixed; z-index: 1200; background: var(--linteau-card); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-md); padding: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) }
 `
 
 /** Creates a floating panel anchored to another element, toggled by clicking that anchor. */

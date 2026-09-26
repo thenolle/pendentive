@@ -49,13 +49,13 @@ export type AccordionElement = HTMLDivElement & AccordionApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const accordionCss = `
-.socle-accordion { display: flex; flex-direction: column; gap: 8px; width: 100% }
-.socle-accordion-item { border: 1px solid var(--socle-border); border-radius: var(--socle-radius-lg); overflow: hidden }
-.socle-accordion-header { display: flex; align-items: center; gap: 8px; width: 100%; padding: 12px; background: var(--socle-muted); border: none; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--socle-foreground); font-family: inherit }
-.socle-accordion-chevron { margin-left: auto; transition: transform 150ms ease }
-.socle-accordion-chevron.socle-open { transform: rotate(180deg) }
-.socle-accordion-content { padding: 12px }
-.socle-accordion-content.socle-collapsed { display: none }
+.linteau-accordion { display: flex; flex-direction: column; gap: 8px; width: 100% }
+.linteau-accordion-item { border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg); overflow: hidden }
+.linteau-accordion-header { display: flex; align-items: center; gap: 8px; width: 100%; padding: 12px; background: var(--linteau-muted); border: none; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--linteau-foreground); font-family: inherit }
+.linteau-accordion-chevron { margin-left: auto; transition: transform 150ms ease }
+.linteau-accordion-chevron.linteau-open { transform: rotate(180deg) }
+.linteau-accordion-content { padding: 12px }
+.linteau-accordion-content.linteau-collapsed { display: none }
 `
 
 /** Creates a set of collapsible sections, single- or multi-open. */

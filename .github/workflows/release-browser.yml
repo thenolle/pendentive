@@ -1,0 +1,67 @@
+name: Release browser build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - package.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-browser
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Read version
+        id: version
+        run: echo "value=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Check if tag already exists
+        id: check
+        run: |
+          if git rev-parse "v${{ steps.version.outputs.value }}" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Skip -- version unchanged
+        if: github.event_name != 'workflow_dispatch' && steps.check.outputs.exists == 'true'
+        run: echo "v${{ steps.version.outputs.value }} already released, skipping."
+
+      - name: Generate + build browser bundle only
+        if: github.event_name == 'workflow_dispatch' || steps.check.outputs.exists == 'false'
+        run: |
+          bun run generate
+          rm -rf dist
+          bun run build:browser
+
+      - name: Create/update GitHub Release
+        if: github.event_name == 'workflow_dispatch' || steps.check.outputs.exists == 'false'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.value }}
+          name: v${{ steps.version.outputs.value }}
+          generate_release_notes: true
+          files: |
+            dist/linteau.global.js
+            dist/linteau.global.js.map

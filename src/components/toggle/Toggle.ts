@@ -45,27 +45,27 @@ export type ToggleElement = HTMLButtonElement & ToggleApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const toggleCss = `
-.socle-toggle {
+.linteau-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  border-radius: var(--socle-radius-sm);
+  border-radius: var(--linteau-radius-sm);
   border: 1px solid transparent;
   background: transparent;
-  color: var(--socle-muted-foreground);
+  color: var(--linteau-muted-foreground);
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
   font-family: inherit;
   transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
 }
-.socle-toggle-default { padding: 8px 12px }
-.socle-toggle-sm { padding: 5px 8px; font-size: 12px }
-.socle-toggle:hover:not(:disabled) { background: var(--socle-accent); color: var(--socle-foreground) }
-.socle-toggle:disabled { opacity: 0.5; cursor: not-allowed }
-.socle-toggle-outline { border-color: var(--socle-border) }
-.socle-toggle.socle-pressed { background: var(--socle-accent); color: var(--socle-foreground) }
+.linteau-toggle-default { padding: 8px 12px }
+.linteau-toggle-sm { padding: 5px 8px; font-size: 12px }
+.linteau-toggle:hover:not(:disabled) { background: var(--linteau-accent); color: var(--linteau-foreground) }
+.linteau-toggle:disabled { opacity: 0.5; cursor: not-allowed }
+.linteau-toggle-outline { border-color: var(--linteau-border) }
+.linteau-toggle.linteau-pressed { background: var(--linteau-accent); color: var(--linteau-foreground) }
 `
 
 /** Creates a single pressable toggle button -- a two-state control (like a checkbox rendered as a button), useful for toolbar options (bold, italic, view modes). */

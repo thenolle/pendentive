@@ -49,14 +49,14 @@ export interface RangeSliderApi {
 /** A `RangeSlider` is a real `HTMLDivElement` (the field wrapper) extended with `RangeSliderApi`. */
 export type RangeSliderElement = HTMLDivElement & RangeSliderApi
 
-/** This component's own CSS. Depends on `.socle-slider` (registered via the imported `sliderCss`) for its thumbs. */
+/** This component's own CSS. Depends on `.linteau-slider` (registered via the imported `sliderCss`) for its thumbs. */
 export const rangeSliderCss = `
-.socle-range-track { position: relative; height: 20px; display: flex; align-items: center }
-.socle-range-track::before { content: ''; position: absolute; left: 0; right: 0; height: 6px; border-radius: 999px; background: var(--socle-secondary) }
-.socle-range-track::after { content: ''; position: absolute; height: 6px; border-radius: 999px; background: var(--socle-primary); left: var(--socle-range-low, 0%); right: calc(100% - var(--socle-range-high, 100%)) }
-.socle-range-input { position: absolute; left: 0; right: 0; width: 100%; height: 20px; background: transparent; pointer-events: none; margin: 0 }
-.socle-range-input::-webkit-slider-thumb { pointer-events: auto }
-.socle-range-input::-moz-range-thumb { pointer-events: auto }
+.linteau-range-track { position: relative; height: 20px; display: flex; align-items: center }
+.linteau-range-track::before { content: ''; position: absolute; left: 0; right: 0; height: 6px; border-radius: 999px; background: var(--linteau-secondary) }
+.linteau-range-track::after { content: ''; position: absolute; height: 6px; border-radius: 999px; background: var(--linteau-primary); left: var(--linteau-range-low, 0%); right: calc(100% - var(--linteau-range-high, 100%)) }
+.linteau-range-input { position: absolute; left: 0; right: 0; width: 100%; height: 20px; background: transparent; pointer-events: none; margin: 0 }
+.linteau-range-input::-webkit-slider-thumb { pointer-events: auto }
+.linteau-range-input::-moz-range-thumb { pointer-events: auto }
 `
 
 /** Creates a labeled dual-thumb range slider, supporting controlled and uncontrolled usage. */
@@ -92,8 +92,8 @@ export function RangeSlider(options: RangeSliderOptions): RangeSliderElement {
     valueEl.textContent = `${format(low)} - ${format(high)}`
     inputLow.value = String(low)
     inputHigh.value = String(high)
-    track.style.setProperty('--socle-range-low', `${((low - min) / (max - min)) * 100}%`)
-    track.style.setProperty('--socle-range-high', `${((high - min) / (max - min)) * 100}%`)
+    track.style.setProperty('--linteau-range-low', `${((low - min) / (max - min)) * 100}%`)
+    track.style.setProperty('--linteau-range-high', `${((high - min) / (max - min)) * 100}%`)
   }
   syncDisplay()
   const lowListener = (): void => {

@@ -32,10 +32,10 @@ export type FileDropzoneElement = HTMLDivElement & FileDropzoneApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const dropzoneCss = `
-.socle-dropzone { border: 1px dashed var(--socle-border); border-radius: var(--socle-radius-lg); padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; cursor: pointer; color: var(--socle-muted-foreground); transition: border-color 120ms ease, background 120ms ease }
-.socle-dropzone:hover, .socle-dropzone-active { border-color: var(--socle-ring); background: var(--socle-accent) }
-.socle-dropzone-disabled { opacity: 0.5; cursor: not-allowed }
-.socle-dropzone-label { font-size: 12px }
+.linteau-dropzone { border: 1px dashed var(--linteau-border); border-radius: var(--linteau-radius-lg); padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; cursor: pointer; color: var(--linteau-muted-foreground); transition: border-color 120ms ease, background 120ms ease }
+.linteau-dropzone:hover, .linteau-dropzone-active { border-color: var(--linteau-ring); background: var(--linteau-accent) }
+.linteau-dropzone-disabled { opacity: 0.5; cursor: not-allowed }
+.linteau-dropzone-label { font-size: 12px }
 `
 
 /** Creates a drag-and-drop file upload zone with a click-to-browse fallback. */

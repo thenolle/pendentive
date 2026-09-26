@@ -43,13 +43,13 @@ export type TreeElement = HTMLDivElement & TreeApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const treeCss = `
-.socle-tree { display: flex; flex-direction: column; gap: 2px }
-.socle-tree-row { display: flex; align-items: center; gap: 6px; padding: 6px 8px; border-radius: var(--socle-radius-sm); cursor: pointer; font-size: 12px }
-.socle-tree-row:hover { background: var(--socle-accent) }
-.socle-tree-chevron { transition: transform 150ms ease }
-.socle-tree-chevron.socle-open { transform: rotate(90deg) }
-.socle-tree-children { margin-left: 18px; display: flex; flex-direction: column; gap: 2px }
-.socle-tree-children.socle-collapsed { display: none }
+.linteau-tree { display: flex; flex-direction: column; gap: 2px }
+.linteau-tree-row { display: flex; align-items: center; gap: 6px; padding: 6px 8px; border-radius: var(--linteau-radius-sm); cursor: pointer; font-size: 12px }
+.linteau-tree-row:hover { background: var(--linteau-accent) }
+.linteau-tree-chevron { transition: transform 150ms ease }
+.linteau-tree-chevron.linteau-open { transform: rotate(90deg) }
+.linteau-tree-children { margin-left: 18px; display: flex; flex-direction: column; gap: 2px }
+.linteau-tree-children.linteau-collapsed { display: none }
 `
 
 /** Creates a recursively nested, expandable tree of nodes. */

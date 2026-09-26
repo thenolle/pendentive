@@ -1,0 +1,62 @@
+name: Publish to npm
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - package.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write   # required for npm's OIDC trusted publishing
+
+concurrency:
+  group: publish-npm
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Setup Node (npm CLI + OIDC-aware publish)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Read version
+        id: version
+        run: echo "value=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Check if this version is already published
+        id: check
+        run: |
+          if npm view linteau@${{ steps.version.outputs.value }} version >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Skip -- version already on npm
+        if: github.event_name != 'workflow_dispatch' && steps.check.outputs.exists == 'true'
+        run: echo "linteau@${{ steps.version.outputs.value }} is already published, skipping."
+
+      - name: Build full package
+        if: github.event_name == 'workflow_dispatch' || steps.check.outputs.exists == 'false'
+        run: bun run build
+
+      - name: Publish (OIDC trusted publishing -- no token needed)
+        if: github.event_name == 'workflow_dispatch' || steps.check.outputs.exists == 'false'
+        run: npm publish --access public

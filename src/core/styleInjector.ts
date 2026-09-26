@@ -1,12 +1,12 @@
 import { isBrowser } from './dom'
 
-const STYLE_ID = 'socle-styles'
+const STYLE_ID = 'linteau-styles'
 const injectedKeys = new Set<string>()
 
 /** A handful of utility classes nearly every component depends on (icon color, hidden state). Injected once, ahead of any component-specific CSS. */
 const baseCss = `
-.socle-hidden { display: none !important }
-.socle-icon { color: var(--socle-muted-foreground); flex-shrink: 0 }
+.linteau-hidden { display: none !important }
+.linteau-icon { color: var(--linteau-muted-foreground); flex-shrink: 0 }
 `
 
 function getStyleSheet(): HTMLStyleElement | null {

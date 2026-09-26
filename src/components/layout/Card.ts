@@ -28,10 +28,10 @@ export type CardElement = HTMLDivElement & CardApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const cardCss = `
-.socle-card { border: 1px solid var(--socle-border); border-radius: var(--socle-radius-lg); background: var(--socle-card); color: var(--socle-card-foreground); overflow: hidden }
-.socle-card-header { padding: 14px 16px; border-bottom: 1px solid var(--socle-border); font-weight: 600 }
-.socle-card-body { padding: 16px }
-.socle-card-footer { padding: 12px 16px; border-top: 1px solid var(--socle-border) }
+.linteau-card { border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg); background: var(--linteau-card); color: var(--linteau-card-foreground); overflow: hidden }
+.linteau-card-header { padding: 14px 16px; border-bottom: 1px solid var(--linteau-border); font-weight: 600 }
+.linteau-card-body { padding: 16px }
+.linteau-card-footer { padding: 12px 16px; border-top: 1px solid var(--linteau-border) }
 `
 
 /** Creates a bordered, sectioned surface with optional header/footer slots and a body you fill freely. */

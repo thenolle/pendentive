@@ -45,13 +45,13 @@ export type TableElement<TRow> = HTMLDivElement & TableApi<TRow>
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const tableCss = `
-.socle-table-wrap { width: 100%; overflow-x: auto; border: 1px solid var(--socle-border); border-radius: var(--socle-radius-lg) }
-.socle-table { width: 100%; border-collapse: collapse; font-size: 12px }
-.socle-table th { text-align: left; padding: 10px 12px; background: var(--socle-muted); color: var(--socle-muted-foreground); font-weight: 600; border-bottom: 1px solid var(--socle-border); cursor: default; white-space: nowrap }
-.socle-table th.socle-table-sortable { cursor: pointer; user-select: none }
-.socle-table td { padding: 10px 12px; border-bottom: 1px solid var(--socle-border); color: var(--socle-foreground) }
-.socle-table tr:last-child td { border-bottom: none }
-.socle-table-sort-icon { display: inline-block; margin-left: 4px; vertical-align: middle }
+.linteau-table-wrap { width: 100%; overflow-x: auto; border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg) }
+.linteau-table { width: 100%; border-collapse: collapse; font-size: 12px }
+.linteau-table th { text-align: left; padding: 10px 12px; background: var(--linteau-muted); color: var(--linteau-muted-foreground); font-weight: 600; border-bottom: 1px solid var(--linteau-border); cursor: default; white-space: nowrap }
+.linteau-table th.linteau-table-sortable { cursor: pointer; user-select: none }
+.linteau-table td { padding: 10px 12px; border-bottom: 1px solid var(--linteau-border); color: var(--linteau-foreground) }
+.linteau-table tr:last-child td { border-bottom: none }
+.linteau-table-sort-icon { display: inline-block; margin-left: 4px; vertical-align: middle }
 `
 
 /** Creates a data table with optional click-to-sort headers and custom cell rendering. */

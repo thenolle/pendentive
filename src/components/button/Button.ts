@@ -51,12 +51,12 @@ export type ButtonElement = HTMLButtonElement & ButtonApi
 
 /** This component's own CSS -- colocated so `Button.ts` is a single, self-contained, tree-shakeable unit. */
 export const buttonCss = `
-.socle-button {
+.linteau-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  border-radius: var(--socle-radius-sm);
+  border-radius: var(--linteau-radius-sm);
   border: 1px solid transparent;
   font-size: 13px;
   font-weight: 500;
@@ -64,24 +64,24 @@ export const buttonCss = `
   font-family: inherit;
   transition: background 120ms ease, border-color 120ms ease, transform 120ms ease, opacity 120ms ease;
 }
-.socle-button-default { padding: 10px 14px }
-.socle-button-sm { padding: 6px 10px; font-size: 12px }
-.socle-button-full { width: 100% }
-.socle-button:active { transform: scale(0.97) }
-.socle-button:disabled { opacity: 0.5; cursor: not-allowed; transform: none }
-.socle-button-default:not(.socle-button-outline):not(.socle-button-ghost):not(.socle-button-destructive) {
-  background: var(--socle-primary);
-  color: var(--socle-primary-foreground);
+.linteau-button-default { padding: 10px 14px }
+.linteau-button-sm { padding: 6px 10px; font-size: 12px }
+.linteau-button-full { width: 100% }
+.linteau-button:active { transform: scale(0.97) }
+.linteau-button:disabled { opacity: 0.5; cursor: not-allowed; transform: none }
+.linteau-button-default:not(.linteau-button-outline):not(.linteau-button-ghost):not(.linteau-button-destructive) {
+  background: var(--linteau-primary);
+  color: var(--linteau-primary-foreground);
 }
-.socle-button-default:not(.socle-button-outline):not(.socle-button-ghost):not(.socle-button-destructive):hover:not(:disabled) {
+.linteau-button-default:not(.linteau-button-outline):not(.linteau-button-ghost):not(.linteau-button-destructive):hover:not(:disabled) {
   filter: brightness(0.92);
 }
-.socle-button-outline { background: transparent; border-color: var(--socle-border); color: var(--socle-foreground) }
-.socle-button-outline:hover:not(:disabled) { background: var(--socle-accent) }
-.socle-button-ghost { background: transparent; color: var(--socle-muted-foreground) }
-.socle-button-ghost:hover:not(:disabled) { background: var(--socle-accent); color: var(--socle-foreground) }
-.socle-button-destructive { background: var(--socle-destructive); color: var(--socle-destructive-foreground) }
-.socle-button-destructive:hover:not(:disabled) { filter: brightness(0.92) }
+.linteau-button-outline { background: transparent; border-color: var(--linteau-border); color: var(--linteau-foreground) }
+.linteau-button-outline:hover:not(:disabled) { background: var(--linteau-accent) }
+.linteau-button-ghost { background: transparent; color: var(--linteau-muted-foreground) }
+.linteau-button-ghost:hover:not(:disabled) { background: var(--linteau-accent); color: var(--linteau-foreground) }
+.linteau-button-destructive { background: var(--linteau-destructive); color: var(--linteau-destructive-foreground) }
+.linteau-button-destructive:hover:not(:disabled) { filter: brightness(0.92) }
 `
 
 /**

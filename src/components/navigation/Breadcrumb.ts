@@ -32,10 +32,10 @@ export type BreadcrumbElement = HTMLElement & BreadcrumbApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const breadcrumbCss = `
-.socle-breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--socle-muted-foreground) }
-.socle-breadcrumb-item { background: transparent; border: none; color: var(--socle-muted-foreground); cursor: pointer; font: inherit; padding: 0 }
-.socle-breadcrumb-item:hover { color: var(--socle-foreground) }
-.socle-breadcrumb-current { color: var(--socle-foreground); font-weight: 500 }
+.linteau-breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--linteau-muted-foreground) }
+.linteau-breadcrumb-item { background: transparent; border: none; color: var(--linteau-muted-foreground); cursor: pointer; font: inherit; padding: 0 }
+.linteau-breadcrumb-item:hover { color: var(--linteau-foreground) }
+.linteau-breadcrumb-current { color: var(--linteau-foreground); font-weight: 500 }
 `
 
 /** Creates a navigational trail of crumbs separated by chevrons. */

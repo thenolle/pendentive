@@ -36,12 +36,12 @@ export type PaginationElement = HTMLDivElement & PaginationApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const paginationCss = `
-.socle-pagination { display: flex; align-items: center; gap: 4px }
-.socle-pagination-item { min-width: 28px; height: 28px; padding: 0 6px; display: flex; align-items: center; justify-content: center; border-radius: var(--socle-radius-sm); border: 1px solid transparent; background: transparent; color: var(--socle-muted-foreground); font-size: 12px; cursor: pointer; font-family: inherit }
-.socle-pagination-item:hover:not(:disabled) { background: var(--socle-accent) }
-.socle-pagination-item:disabled { opacity: 0.4; cursor: not-allowed }
-.socle-pagination-item-active { background: var(--socle-primary); color: var(--socle-primary-foreground) }
-.socle-pagination-ellipsis { color: var(--socle-muted-foreground); padding: 0 4px }
+.linteau-pagination { display: flex; align-items: center; gap: 4px }
+.linteau-pagination-item { min-width: 28px; height: 28px; padding: 0 6px; display: flex; align-items: center; justify-content: center; border-radius: var(--linteau-radius-sm); border: 1px solid transparent; background: transparent; color: var(--linteau-muted-foreground); font-size: 12px; cursor: pointer; font-family: inherit }
+.linteau-pagination-item:hover:not(:disabled) { background: var(--linteau-accent) }
+.linteau-pagination-item:disabled { opacity: 0.4; cursor: not-allowed }
+.linteau-pagination-item-active { background: var(--linteau-primary); color: var(--linteau-primary-foreground) }
+.linteau-pagination-ellipsis { color: var(--linteau-muted-foreground); padding: 0 4px }
 `
 
 function buildRange(current: number, pageCount: number, siblingCount: number): Array<number | 'ellipsis'> {

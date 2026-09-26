@@ -41,12 +41,12 @@ export type SwitchElement = HTMLDivElement & SwitchApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const switchCss = `
-.socle-switch-row { display: flex; align-items: center; justify-content: space-between }
-.socle-switch { width: 38px; height: 22px; border-radius: 999px; background: var(--socle-secondary); border: 1px solid var(--socle-border); padding: 2px; cursor: pointer; display: flex; align-items: center; transition: background 150ms ease }
-.socle-switch:disabled { opacity: 0.5; cursor: not-allowed }
-.socle-switch.socle-checked { background: var(--socle-primary) }
-.socle-switch-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--socle-card); transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1); transform: translateX(0) }
-.socle-switch.socle-checked .socle-switch-thumb { transform: translateX(16px); background: var(--socle-primary-foreground) }
+.linteau-switch-row { display: flex; align-items: center; justify-content: space-between }
+.linteau-switch { width: 38px; height: 22px; border-radius: 999px; background: var(--linteau-secondary); border: 1px solid var(--linteau-border); padding: 2px; cursor: pointer; display: flex; align-items: center; transition: background 150ms ease }
+.linteau-switch:disabled { opacity: 0.5; cursor: not-allowed }
+.linteau-switch.linteau-checked { background: var(--linteau-primary) }
+.linteau-switch-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--linteau-card); transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1); transform: translateX(0) }
+.linteau-switch.linteau-checked .linteau-switch-thumb { transform: translateX(16px); background: var(--linteau-primary-foreground) }
 `
 
 /** Creates a labeled on/off toggle, supporting both controlled and uncontrolled usage. */

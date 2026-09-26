@@ -1,5 +1,5 @@
-/** Every design token Socle exposes as a `--socle-*` CSS custom property. */
-export interface SocleThemeTokens {
+/** Every design token Linteau exposes as a `--linteau-*` CSS custom property. */
+export interface LinteauThemeTokens {
   background: string
   foreground: string
   card: string
@@ -28,8 +28,8 @@ export interface SocleThemeTokens {
   radiusXl: string
 }
 
-/** Socle's built-in dark theme -- the same OKLCH palette used across every component. */
-export const defaultTheme: SocleThemeTokens = {
+/** Linteau's built-in dark theme -- the same OKLCH palette used across every component. */
+export const defaultTheme: LinteauThemeTokens = {
   background: 'oklch(0.09 0 0)',
   foreground: 'oklch(0.94 0 0)',
   card: 'oklch(0.12 0 0)',
@@ -58,34 +58,34 @@ export const defaultTheme: SocleThemeTokens = {
   radiusXl: 'calc(0.625rem + 4px)'
 }
 
-/** Builds the `:root { --socle-*: ...; }` stylesheet text for a given set of theme tokens. */
-export function buildTokensCss(tokens: SocleThemeTokens): string {
+/** Builds the `:root { --linteau-*: ...; }` stylesheet text for a given set of theme tokens. */
+export function buildTokensCss(tokens: LinteauThemeTokens): string {
   return `:root {
-  --socle-background: ${tokens.background};
-  --socle-foreground: ${tokens.foreground};
-  --socle-card: ${tokens.card};
-  --socle-card-foreground: ${tokens.cardForeground};
-  --socle-primary: ${tokens.primary};
-  --socle-primary-foreground: ${tokens.primaryForeground};
-  --socle-secondary: ${tokens.secondary};
-  --socle-secondary-foreground: ${tokens.secondaryForeground};
-  --socle-muted: ${tokens.muted};
-  --socle-muted-foreground: ${tokens.mutedForeground};
-  --socle-accent: ${tokens.accent};
-  --socle-accent-foreground: ${tokens.accentForeground};
-  --socle-destructive: ${tokens.destructive};
-  --socle-destructive-foreground: ${tokens.destructiveForeground};
-  --socle-success: ${tokens.success};
-  --socle-success-foreground: ${tokens.successForeground};
-  --socle-warning: ${tokens.warning};
-  --socle-warning-foreground: ${tokens.warningForeground};
-  --socle-border: ${tokens.border};
-  --socle-input: ${tokens.input};
-  --socle-ring: ${tokens.ring};
-  --socle-radius: ${tokens.radius};
-  --socle-radius-sm: ${tokens.radiusSm};
-  --socle-radius-md: ${tokens.radiusMd};
-  --socle-radius-lg: ${tokens.radiusLg};
-  --socle-radius-xl: ${tokens.radiusXl};
+  --linteau-background: ${tokens.background};
+  --linteau-foreground: ${tokens.foreground};
+  --linteau-card: ${tokens.card};
+  --linteau-card-foreground: ${tokens.cardForeground};
+  --linteau-primary: ${tokens.primary};
+  --linteau-primary-foreground: ${tokens.primaryForeground};
+  --linteau-secondary: ${tokens.secondary};
+  --linteau-secondary-foreground: ${tokens.secondaryForeground};
+  --linteau-muted: ${tokens.muted};
+  --linteau-muted-foreground: ${tokens.mutedForeground};
+  --linteau-accent: ${tokens.accent};
+  --linteau-accent-foreground: ${tokens.accentForeground};
+  --linteau-destructive: ${tokens.destructive};
+  --linteau-destructive-foreground: ${tokens.destructiveForeground};
+  --linteau-success: ${tokens.success};
+  --linteau-success-foreground: ${tokens.successForeground};
+  --linteau-warning: ${tokens.warning};
+  --linteau-warning-foreground: ${tokens.warningForeground};
+  --linteau-border: ${tokens.border};
+  --linteau-input: ${tokens.input};
+  --linteau-ring: ${tokens.ring};
+  --linteau-radius: ${tokens.radius};
+  --linteau-radius-sm: ${tokens.radiusSm};
+  --linteau-radius-md: ${tokens.radiusMd};
+  --linteau-radius-lg: ${tokens.radiusLg};
+  --linteau-radius-xl: ${tokens.radiusXl};
 }`
 }

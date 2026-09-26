@@ -40,23 +40,23 @@ export type CheckboxElement = HTMLDivElement & CheckboxApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const checkboxCss = `
-.socle-checkbox-row { display: flex; align-items: center; gap: 8px }
-.socle-checkbox {
+.linteau-checkbox-row { display: flex; align-items: center; gap: 8px }
+.linteau-checkbox {
   width: 18px;
   height: 18px;
-  border-radius: var(--socle-radius-sm);
-  border: 1px solid var(--socle-border);
-  background: var(--socle-secondary);
+  border-radius: var(--linteau-radius-sm);
+  border: 1px solid var(--linteau-border);
+  background: var(--linteau-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--socle-primary-foreground);
+  color: var(--linteau-primary-foreground);
 }
-.socle-checkbox:disabled { opacity: 0.5; cursor: not-allowed }
-.socle-checkbox.socle-checked { background: var(--socle-primary); border-color: var(--socle-primary) }
-.socle-checkbox svg { display: none }
-.socle-checkbox.socle-checked svg, .socle-checkbox.socle-indeterminate svg { display: block }
+.linteau-checkbox:disabled { opacity: 0.5; cursor: not-allowed }
+.linteau-checkbox.linteau-checked { background: var(--linteau-primary); border-color: var(--linteau-primary) }
+.linteau-checkbox svg { display: none }
+.linteau-checkbox.linteau-checked svg, .linteau-checkbox.linteau-indeterminate svg { display: block }
 `
 
 /** Creates a labeled checkbox, supporting controlled/uncontrolled and indeterminate states. */

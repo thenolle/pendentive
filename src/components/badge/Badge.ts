@@ -31,7 +31,7 @@ export type BadgeElement = HTMLSpanElement & BadgeApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const badgeCss = `
-.socle-badge {
+.linteau-badge {
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -42,11 +42,11 @@ export const badgeCss = `
   line-height: 1.6;
   border: 1px solid transparent;
 }
-.socle-badge-default { background: var(--socle-secondary); color: var(--socle-secondary-foreground) }
-.socle-badge-outline { background: transparent; border-color: var(--socle-border); color: var(--socle-foreground) }
-.socle-badge-success { background: var(--socle-success); color: var(--socle-success-foreground) }
-.socle-badge-warning { background: var(--socle-warning); color: var(--socle-warning-foreground) }
-.socle-badge-destructive { background: var(--socle-destructive); color: var(--socle-destructive-foreground) }
+.linteau-badge-default { background: var(--linteau-secondary); color: var(--linteau-secondary-foreground) }
+.linteau-badge-outline { background: transparent; border-color: var(--linteau-border); color: var(--linteau-foreground) }
+.linteau-badge-success { background: var(--linteau-success); color: var(--linteau-success-foreground) }
+.linteau-badge-warning { background: var(--linteau-warning); color: var(--linteau-warning-foreground) }
+.linteau-badge-destructive { background: var(--linteau-destructive); color: var(--linteau-destructive-foreground) }
 `
 
 /** Creates a small pill-shaped status/label indicator. */

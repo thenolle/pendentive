@@ -41,13 +41,13 @@ export type ModeCardElement = HTMLButtonElement & ModeCardApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const modeCardCss = `
-.socle-mode-card { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px; background: var(--socle-card); border: 1px solid var(--socle-border); border-radius: var(--socle-radius-lg); color: var(--socle-foreground); cursor: pointer; text-align: left; font-family: inherit; transition: border-color 120ms ease, transform 120ms ease }
-.socle-mode-card:hover:not(.socle-locked) { border-color: var(--socle-ring); transform: translateY(-2px) }
-.socle-mode-card.socle-selected { border-color: var(--socle-primary); box-shadow: 0 0 0 1px var(--socle-primary) }
-.socle-mode-card.socle-locked { opacity: 0.45; cursor: not-allowed }
-.socle-mode-card-icon { color: var(--socle-foreground) }
-.socle-mode-card-title { font-weight: 600; font-size: 13px }
-.socle-mode-card-description { font-size: 11px; color: var(--socle-muted-foreground) }
+.linteau-mode-card { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px; background: var(--linteau-card); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg); color: var(--linteau-foreground); cursor: pointer; text-align: left; font-family: inherit; transition: border-color 120ms ease, transform 120ms ease }
+.linteau-mode-card:hover:not(.linteau-locked) { border-color: var(--linteau-ring); transform: translateY(-2px) }
+.linteau-mode-card.linteau-selected { border-color: var(--linteau-primary); box-shadow: 0 0 0 1px var(--linteau-primary) }
+.linteau-mode-card.linteau-locked { opacity: 0.45; cursor: not-allowed }
+.linteau-mode-card-icon { color: var(--linteau-foreground) }
+.linteau-mode-card-title { font-weight: 600; font-size: 13px }
+.linteau-mode-card-description { font-size: 11px; color: var(--linteau-muted-foreground) }
 `
 
 /** Creates a selectable, optionally lockable option card -- typically used in mode/menu pickers. */

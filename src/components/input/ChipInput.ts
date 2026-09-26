@@ -38,11 +38,11 @@ export type ChipInputElement = HTMLDivElement & ChipInputApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const chipInputCss = `
-.socle-chip-field { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; background: var(--socle-secondary); border: 1px solid var(--socle-border); border-radius: var(--socle-radius-sm) }
-.socle-chip-field:focus-within { border-color: var(--socle-ring) }
-.socle-chip { display: inline-flex; align-items: center; gap: 4px; background: var(--socle-accent); color: var(--socle-accent-foreground); border-radius: 999px; padding: 3px 8px; font-size: 11px }
-.socle-chip-remove { background: transparent; border: none; color: inherit; cursor: pointer; display: flex; padding: 0 }
-.socle-chip-input { flex: 1; min-width: 80px; background: transparent; border: none; color: var(--socle-foreground); font-size: 12px; font-family: inherit; outline: none }
+.linteau-chip-field { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; background: var(--linteau-secondary); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-sm) }
+.linteau-chip-field:focus-within { border-color: var(--linteau-ring) }
+.linteau-chip { display: inline-flex; align-items: center; gap: 4px; background: var(--linteau-accent); color: var(--linteau-accent-foreground); border-radius: 999px; padding: 3px 8px; font-size: 11px }
+.linteau-chip-remove { background: transparent; border: none; color: inherit; cursor: pointer; display: flex; padding: 0 }
+.linteau-chip-input { flex: 1; min-width: 80px; background: transparent; border: none; color: var(--linteau-foreground); font-size: 12px; font-family: inherit; outline: none }
 `
 
 /** Creates a labeled tag/chip input: press Enter to add the typed text as a removable chip. */

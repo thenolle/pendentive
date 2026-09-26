@@ -46,14 +46,14 @@ export type DialogElement = HTMLDivElement & DialogApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const dialogCss = `
-.socle-dialog-overlay { position: fixed; inset: 0; background: color-mix(in oklch, black 60%, transparent); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px) }
-.socle-dialog-panel { width: min(480px, 92vw); max-height: 86vh; display: flex; flex-direction: column; background: var(--socle-card); border: 1px solid var(--socle-border); border-radius: var(--socle-radius-lg); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); overflow: hidden }
-.socle-dialog-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--socle-border) }
-.socle-dialog-title { font-size: 14px; font-weight: 600 }
-.socle-dialog-close { background: transparent; border: none; color: var(--socle-muted-foreground); cursor: pointer; display: flex; padding: 4px; border-radius: var(--socle-radius-sm) }
-.socle-dialog-close:hover { background: var(--socle-accent); color: var(--socle-foreground) }
-.socle-dialog-body { padding: 16px; overflow-y: auto }
-.socle-dialog-footer { display: flex; justify-content: flex-end; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--socle-border) }
+.linteau-dialog-overlay { position: fixed; inset: 0; background: color-mix(in oklch, black 60%, transparent); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px) }
+.linteau-dialog-panel { width: min(480px, 92vw); max-height: 86vh; display: flex; flex-direction: column; background: var(--linteau-card); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); overflow: hidden }
+.linteau-dialog-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--linteau-border) }
+.linteau-dialog-title { font-size: 14px; font-weight: 600 }
+.linteau-dialog-close { background: transparent; border: none; color: var(--linteau-muted-foreground); cursor: pointer; display: flex; padding: 4px; border-radius: var(--linteau-radius-sm) }
+.linteau-dialog-close:hover { background: var(--linteau-accent); color: var(--linteau-foreground) }
+.linteau-dialog-body { padding: 16px; overflow-y: auto }
+.linteau-dialog-footer { display: flex; justify-content: flex-end; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--linteau-border) }
 `
 
 /** Creates a centered modal dialog with a backdrop, focus-safe scroll lock, and Escape-to-close. */

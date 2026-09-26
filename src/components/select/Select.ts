@@ -56,11 +56,11 @@ export type SelectElement = HTMLDivElement & SelectApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const selectCss = `
-.socle-select-wrap { position: relative }
-.socle-select { appearance: none; background: var(--socle-secondary); color: var(--socle-foreground); border: 1px solid var(--socle-border); border-radius: var(--socle-radius-sm); padding: 6px 28px 6px 10px; font-size: 12px; font-family: inherit; cursor: pointer; transition: border-color 120ms ease }
-.socle-select:disabled { opacity: 0.5; cursor: not-allowed }
-.socle-select:focus { outline: none; border-color: var(--socle-ring); box-shadow: 0 0 0 2px color-mix(in oklch, var(--socle-ring) 20%, transparent) }
-.socle-select-chevron { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); pointer-events: none }
+.linteau-select-wrap { position: relative }
+.linteau-select { appearance: none; background: var(--linteau-secondary); color: var(--linteau-foreground); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-sm); padding: 6px 28px 6px 10px; font-size: 12px; font-family: inherit; cursor: pointer; transition: border-color 120ms ease }
+.linteau-select:disabled { opacity: 0.5; cursor: not-allowed }
+.linteau-select:focus { outline: none; border-color: var(--linteau-ring); box-shadow: 0 0 0 2px color-mix(in oklch, var(--linteau-ring) 20%, transparent) }
+.linteau-select-chevron { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); pointer-events: none }
 `
 
 /** Creates a labeled native select dropdown, restyled to match the design system. */

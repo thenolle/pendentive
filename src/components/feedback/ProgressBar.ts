@@ -36,14 +36,14 @@ export type ProgressBarElement = HTMLDivElement & ProgressBarApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const progressBarCss = `
-.socle-progress-overlay { position: fixed; inset: 0; background: color-mix(in oklch, black 55%, transparent); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px) }
-.socle-progress-card { width: 280px; background: var(--socle-card); border: 1px solid var(--socle-border); border-radius: var(--socle-radius-lg); padding: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) }
-.socle-progress-title { font-size: 13px; font-weight: 600; margin-bottom: 12px; color: var(--socle-foreground) }
-.socle-progress-track { width: 100%; height: 8px; border-radius: 999px; background: var(--socle-secondary); overflow: hidden; position: relative }
-.socle-progress-fill { height: 100%; width: 0%; background: var(--socle-primary); border-radius: 999px; transition: width 180ms ease }
-.socle-progress-fill.socle-indeterminate { width: 40% !important; animation: socle-progress-slide 1.1s ease-in-out infinite }
-@keyframes socle-progress-slide { 0% { transform: translateX(-100%) } 100% { transform: translateX(250%) } }
-.socle-progress-percent { margin-top: 8px; font-size: 12px; color: var(--socle-muted-foreground); text-align: right; font-variant-numeric: tabular-nums }
+.linteau-progress-overlay { position: fixed; inset: 0; background: color-mix(in oklch, black 55%, transparent); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px) }
+.linteau-progress-card { width: 280px; background: var(--linteau-card); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg); padding: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) }
+.linteau-progress-title { font-size: 13px; font-weight: 600; margin-bottom: 12px; color: var(--linteau-foreground) }
+.linteau-progress-track { width: 100%; height: 8px; border-radius: 999px; background: var(--linteau-secondary); overflow: hidden; position: relative }
+.linteau-progress-fill { height: 100%; width: 0%; background: var(--linteau-primary); border-radius: 999px; transition: width 180ms ease }
+.linteau-progress-fill.linteau-indeterminate { width: 40% !important; animation: linteau-progress-slide 1.1s ease-in-out infinite }
+@keyframes linteau-progress-slide { 0% { transform: translateX(-100%) } 100% { transform: translateX(250%) } }
+.linteau-progress-percent { margin-top: 8px; font-size: 12px; color: var(--linteau-muted-foreground); text-align: right; font-variant-numeric: tabular-nums }
 `
 
 /** Creates a full-screen progress overlay, ideal for long-running async operations. */

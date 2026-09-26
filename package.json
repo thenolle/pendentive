@@ -1,5 +1,5 @@
 {
-  "name": "socle",
+  "name": "linteau",
   "version": "0.1.1",
   "description": "A self-sufficient, dependency-free UI component library for the browser, Node, and Bun.",
   "type": "module",
@@ -29,8 +29,8 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "unpkg": "./dist/socle.global.js",
-  "jsdelivr": "./dist/socle.global.js",
+  "unpkg": "./dist/linteau.global.js",
+  "jsdelivr": "./dist/linteau.global.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -49,6 +49,10 @@
     "LICENSE",
     "README.md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thenolle/linteau.git"
+  },
   "scripts": {
     "generate:icons": "bun run scripts/generate-icons.ts",
     "generate:index": "bun run scripts/generate-index.ts",

@@ -40,13 +40,13 @@ export interface ButtonGroupApi {
 /** A `ButtonGroup` is a real `HTMLDivElement` extended with `ButtonGroupApi`. */
 export type ButtonGroupElement = HTMLDivElement & ButtonGroupApi
 
-/** This component's own CSS. Depends on `.socle-button`, which `Button()` registers itself the moment `ButtonGroup` renders its first segment. */
+/** This component's own CSS. Depends on `.linteau-button`, which `Button()` registers itself the moment `ButtonGroup` renders its first segment. */
 export const buttonGroupCss = `
-.socle-button-group { display: inline-flex; border: 1px solid var(--socle-border); border-radius: var(--socle-radius-sm); overflow: hidden }
-.socle-button-group .socle-button { border-radius: 0; border: none; border-right: 1px solid var(--socle-border); background: transparent; color: var(--socle-muted-foreground) }
-.socle-button-group .socle-button:last-child { border-right: none }
-.socle-button-group .socle-button:hover:not(:disabled) { background: var(--socle-accent) }
-.socle-button-group .socle-button-group-item-active { background: var(--socle-primary); color: var(--socle-primary-foreground) }
+.linteau-button-group { display: inline-flex; border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-sm); overflow: hidden }
+.linteau-button-group .linteau-button { border-radius: 0; border: none; border-right: 1px solid var(--linteau-border); background: transparent; color: var(--linteau-muted-foreground) }
+.linteau-button-group .linteau-button:last-child { border-right: none }
+.linteau-button-group .linteau-button:hover:not(:disabled) { background: var(--linteau-accent) }
+.linteau-button-group .linteau-button-group-item-active { background: var(--linteau-primary); color: var(--linteau-primary-foreground) }
 `
 
 /** Creates a segmented, single-select group of buttons -- useful for compact mode/tab-like pickers that don't need a full `Select`. */
