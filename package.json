@@ -5,7 +5,22 @@
   "type": "module",
   "license": "WTFPL",
   "author": "Nolly",
-  "keywords": ["ui", "components", "design-system", "vanilla", "typescript", "svg-icons"],
+  "keywords": [
+    "ui-components",
+    "component-library",
+    "design-system",
+    "vanilla-javascript",
+    "typescript",
+    "zero-dependency",
+    "dom",
+    "browser",
+    "nodejs",
+    "bun",
+    "web-components",
+    "svg-icons",
+    "css-variables",
+    "frontend"
+  ],
   "sideEffects": false,
   "engines": {
     "node": ">=18",
@@ -29,7 +44,11 @@
     },
     "./package.json": "./package.json"
   },
-  "files": ["dist", "LICENSE", "README.md"],
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "generate:icons": "bun run scripts/generate-icons.ts",
     "generate:index": "bun run scripts/generate-index.ts",

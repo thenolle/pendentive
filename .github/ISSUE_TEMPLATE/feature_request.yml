@@ -1,0 +1,39 @@
+name: Feature request
+description: Propose a new component, prop, or behavior for Socle.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: What are you trying to build that Socle can't currently do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API
+      description: Sketch the shape you'd expect — options object, controller methods, etc.
+      render: ts
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any workarounds you're currently using, or other libraries' approach to this.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Fits the project's constraints
+      options:
+        - label: This wouldn't add a runtime dependency
+          required: true
+        - label: This wouldn't require a build step for consumers
+          required: true
