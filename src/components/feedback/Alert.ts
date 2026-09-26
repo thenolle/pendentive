@@ -36,14 +36,14 @@ export type AlertElement = HTMLDivElement & AlertApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const alertCss = `
-.linteau-alert { display: flex; gap: 10px; padding: 12px; border-radius: var(--linteau-radius-lg); border: 1px solid var(--linteau-border); background: var(--linteau-muted) }
-.linteau-alert-success { border-color: var(--linteau-success) }
-.linteau-alert-warning { border-color: var(--linteau-warning) }
-.linteau-alert-destructive { border-color: var(--linteau-destructive) }
-.linteau-alert-body { flex: 1 }
-.linteau-alert-title { font-size: 13px; font-weight: 600; margin-bottom: 2px }
-.linteau-alert-description { font-size: 12px; color: var(--linteau-muted-foreground) }
-.linteau-alert-close { background: transparent; border: none; color: var(--linteau-muted-foreground); cursor: pointer; display: flex; align-self: flex-start }
+.pendentive-alert { display: flex; gap: 10px; padding: 12px; border-radius: var(--pendentive-radius-lg); border: 1px solid var(--pendentive-border); background: var(--pendentive-muted) }
+.pendentive-alert-success { border-color: var(--pendentive-success) }
+.pendentive-alert-warning { border-color: var(--pendentive-warning) }
+.pendentive-alert-destructive { border-color: var(--pendentive-destructive) }
+.pendentive-alert-body { flex: 1 }
+.pendentive-alert-title { font-size: 13px; font-weight: 600; margin-bottom: 2px }
+.pendentive-alert-description { font-size: 12px; color: var(--pendentive-muted-foreground) }
+.pendentive-alert-close { background: transparent; border: none; color: var(--pendentive-muted-foreground); cursor: pointer; display: flex; align-self: flex-start }
 `
 
 const defaultIconByVariant: Record<AlertVariant, IconInput> = {

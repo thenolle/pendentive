@@ -30,10 +30,10 @@ export type AvatarElement = HTMLDivElement & AvatarApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const avatarCss = `
-.linteau-avatar { display: inline-flex; align-items: center; justify-content: center; background: var(--linteau-secondary); color: var(--linteau-secondary-foreground); font-size: 12px; font-weight: 600; overflow: hidden; flex-shrink: 0 }
-.linteau-avatar-circle { border-radius: 50% }
-.linteau-avatar-square { border-radius: var(--linteau-radius-sm) }
-.linteau-avatar img { width: 100%; height: 100%; object-fit: cover }
+.pendentive-avatar { display: inline-flex; align-items: center; justify-content: center; background: var(--pendentive-secondary); color: var(--pendentive-secondary-foreground); font-size: 12px; font-weight: 600; overflow: hidden; flex-shrink: 0 }
+.pendentive-avatar-circle { border-radius: 50% }
+.pendentive-avatar-square { border-radius: var(--pendentive-radius-sm) }
+.pendentive-avatar img { width: 100%; height: 100%; object-fit: cover }
 `
 
 /** Creates a circular or square avatar with an automatic initials fallback. */

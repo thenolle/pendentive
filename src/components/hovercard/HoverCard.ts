@@ -35,7 +35,7 @@ export interface HoverCardApi extends Destroyable {
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const hoverCardCss = `
-.linteau-hover-card { position: fixed; z-index: 1200; width: 280px; background: var(--linteau-card); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-md); padding: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); font-size: 12px; color: var(--linteau-foreground) }
+.pendentive-hover-card { position: fixed; z-index: 1200; width: 280px; background: var(--pendentive-card); border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-md); padding: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); font-size: 12px; color: var(--pendentive-foreground) }
 `
 
 /**

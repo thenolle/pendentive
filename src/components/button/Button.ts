@@ -51,12 +51,12 @@ export type ButtonElement = HTMLButtonElement & ButtonApi
 
 /** This component's own CSS -- colocated so `Button.ts` is a single, self-contained, tree-shakeable unit. */
 export const buttonCss = `
-.linteau-button {
+.pendentive-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  border-radius: var(--linteau-radius-sm);
+  border-radius: var(--pendentive-radius-sm);
   border: 1px solid transparent;
   font-size: 13px;
   font-weight: 500;
@@ -64,24 +64,24 @@ export const buttonCss = `
   font-family: inherit;
   transition: background 120ms ease, border-color 120ms ease, transform 120ms ease, opacity 120ms ease;
 }
-.linteau-button-default { padding: 10px 14px }
-.linteau-button-sm { padding: 6px 10px; font-size: 12px }
-.linteau-button-full { width: 100% }
-.linteau-button:active { transform: scale(0.97) }
-.linteau-button:disabled { opacity: 0.5; cursor: not-allowed; transform: none }
-.linteau-button-default:not(.linteau-button-outline):not(.linteau-button-ghost):not(.linteau-button-destructive) {
-  background: var(--linteau-primary);
-  color: var(--linteau-primary-foreground);
+.pendentive-button-default { padding: 10px 14px }
+.pendentive-button-sm { padding: 6px 10px; font-size: 12px }
+.pendentive-button-full { width: 100% }
+.pendentive-button:active { transform: scale(0.97) }
+.pendentive-button:disabled { opacity: 0.5; cursor: not-allowed; transform: none }
+.pendentive-button-default:not(.pendentive-button-outline):not(.pendentive-button-ghost):not(.pendentive-button-destructive) {
+  background: var(--pendentive-primary);
+  color: var(--pendentive-primary-foreground);
 }
-.linteau-button-default:not(.linteau-button-outline):not(.linteau-button-ghost):not(.linteau-button-destructive):hover:not(:disabled) {
+.pendentive-button-default:not(.pendentive-button-outline):not(.pendentive-button-ghost):not(.pendentive-button-destructive):hover:not(:disabled) {
   filter: brightness(0.92);
 }
-.linteau-button-outline { background: transparent; border-color: var(--linteau-border); color: var(--linteau-foreground) }
-.linteau-button-outline:hover:not(:disabled) { background: var(--linteau-accent) }
-.linteau-button-ghost { background: transparent; color: var(--linteau-muted-foreground) }
-.linteau-button-ghost:hover:not(:disabled) { background: var(--linteau-accent); color: var(--linteau-foreground) }
-.linteau-button-destructive { background: var(--linteau-destructive); color: var(--linteau-destructive-foreground) }
-.linteau-button-destructive:hover:not(:disabled) { filter: brightness(0.92) }
+.pendentive-button-outline { background: transparent; border-color: var(--pendentive-border); color: var(--pendentive-foreground) }
+.pendentive-button-outline:hover:not(:disabled) { background: var(--pendentive-accent) }
+.pendentive-button-ghost { background: transparent; color: var(--pendentive-muted-foreground) }
+.pendentive-button-ghost:hover:not(:disabled) { background: var(--pendentive-accent); color: var(--pendentive-foreground) }
+.pendentive-button-destructive { background: var(--pendentive-destructive); color: var(--pendentive-destructive-foreground) }
+.pendentive-button-destructive:hover:not(:disabled) { filter: brightness(0.92) }
 `
 
 /**

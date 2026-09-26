@@ -49,13 +49,13 @@ export type AccordionElement = HTMLDivElement & AccordionApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const accordionCss = `
-.linteau-accordion { display: flex; flex-direction: column; gap: 8px; width: 100% }
-.linteau-accordion-item { border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg); overflow: hidden }
-.linteau-accordion-header { display: flex; align-items: center; gap: 8px; width: 100%; padding: 12px; background: var(--linteau-muted); border: none; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--linteau-foreground); font-family: inherit }
-.linteau-accordion-chevron { margin-left: auto; transition: transform 150ms ease }
-.linteau-accordion-chevron.linteau-open { transform: rotate(180deg) }
-.linteau-accordion-content { padding: 12px }
-.linteau-accordion-content.linteau-collapsed { display: none }
+.pendentive-accordion { display: flex; flex-direction: column; gap: 8px; width: 100% }
+.pendentive-accordion-item { border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-lg); overflow: hidden }
+.pendentive-accordion-header { display: flex; align-items: center; gap: 8px; width: 100%; padding: 12px; background: var(--pendentive-muted); border: none; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--pendentive-foreground); font-family: inherit }
+.pendentive-accordion-chevron { margin-left: auto; transition: transform 150ms ease }
+.pendentive-accordion-chevron.pendentive-open { transform: rotate(180deg) }
+.pendentive-accordion-content { padding: 12px }
+.pendentive-accordion-content.pendentive-collapsed { display: none }
 `
 
 /** Creates a set of collapsible sections, single- or multi-open. */

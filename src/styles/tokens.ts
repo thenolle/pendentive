@@ -1,5 +1,5 @@
-/** Every design token Linteau exposes as a `--linteau-*` CSS custom property. */
-export interface LinteauThemeTokens {
+/** Every design token Pendentive exposes as a `--pendentive-*` CSS custom property. */
+export interface PendentiveThemeTokens {
   background: string
   foreground: string
   card: string
@@ -28,8 +28,8 @@ export interface LinteauThemeTokens {
   radiusXl: string
 }
 
-/** Linteau's built-in dark theme -- the same OKLCH palette used across every component. */
-export const defaultTheme: LinteauThemeTokens = {
+/** Pendentive's built-in dark theme -- the same OKLCH palette used across every component. */
+export const defaultTheme: PendentiveThemeTokens = {
   background: 'oklch(0.09 0 0)',
   foreground: 'oklch(0.94 0 0)',
   card: 'oklch(0.12 0 0)',
@@ -58,34 +58,34 @@ export const defaultTheme: LinteauThemeTokens = {
   radiusXl: 'calc(0.625rem + 4px)'
 }
 
-/** Builds the `:root { --linteau-*: ...; }` stylesheet text for a given set of theme tokens. */
-export function buildTokensCss(tokens: LinteauThemeTokens): string {
+/** Builds the `:root { --pendentive-*: ...; }` stylesheet text for a given set of theme tokens. */
+export function buildTokensCss(tokens: PendentiveThemeTokens): string {
   return `:root {
-  --linteau-background: ${tokens.background};
-  --linteau-foreground: ${tokens.foreground};
-  --linteau-card: ${tokens.card};
-  --linteau-card-foreground: ${tokens.cardForeground};
-  --linteau-primary: ${tokens.primary};
-  --linteau-primary-foreground: ${tokens.primaryForeground};
-  --linteau-secondary: ${tokens.secondary};
-  --linteau-secondary-foreground: ${tokens.secondaryForeground};
-  --linteau-muted: ${tokens.muted};
-  --linteau-muted-foreground: ${tokens.mutedForeground};
-  --linteau-accent: ${tokens.accent};
-  --linteau-accent-foreground: ${tokens.accentForeground};
-  --linteau-destructive: ${tokens.destructive};
-  --linteau-destructive-foreground: ${tokens.destructiveForeground};
-  --linteau-success: ${tokens.success};
-  --linteau-success-foreground: ${tokens.successForeground};
-  --linteau-warning: ${tokens.warning};
-  --linteau-warning-foreground: ${tokens.warningForeground};
-  --linteau-border: ${tokens.border};
-  --linteau-input: ${tokens.input};
-  --linteau-ring: ${tokens.ring};
-  --linteau-radius: ${tokens.radius};
-  --linteau-radius-sm: ${tokens.radiusSm};
-  --linteau-radius-md: ${tokens.radiusMd};
-  --linteau-radius-lg: ${tokens.radiusLg};
-  --linteau-radius-xl: ${tokens.radiusXl};
+  --pendentive-background: ${tokens.background};
+  --pendentive-foreground: ${tokens.foreground};
+  --pendentive-card: ${tokens.card};
+  --pendentive-card-foreground: ${tokens.cardForeground};
+  --pendentive-primary: ${tokens.primary};
+  --pendentive-primary-foreground: ${tokens.primaryForeground};
+  --pendentive-secondary: ${tokens.secondary};
+  --pendentive-secondary-foreground: ${tokens.secondaryForeground};
+  --pendentive-muted: ${tokens.muted};
+  --pendentive-muted-foreground: ${tokens.mutedForeground};
+  --pendentive-accent: ${tokens.accent};
+  --pendentive-accent-foreground: ${tokens.accentForeground};
+  --pendentive-destructive: ${tokens.destructive};
+  --pendentive-destructive-foreground: ${tokens.destructiveForeground};
+  --pendentive-success: ${tokens.success};
+  --pendentive-success-foreground: ${tokens.successForeground};
+  --pendentive-warning: ${tokens.warning};
+  --pendentive-warning-foreground: ${tokens.warningForeground};
+  --pendentive-border: ${tokens.border};
+  --pendentive-input: ${tokens.input};
+  --pendentive-ring: ${tokens.ring};
+  --pendentive-radius: ${tokens.radius};
+  --pendentive-radius-sm: ${tokens.radiusSm};
+  --pendentive-radius-md: ${tokens.radiusMd};
+  --pendentive-radius-lg: ${tokens.radiusLg};
+  --pendentive-radius-xl: ${tokens.radiusXl};
 }`
 }

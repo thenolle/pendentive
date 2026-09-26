@@ -1,12 +1,12 @@
 import { isBrowser } from './dom'
 import { createEmitter } from './controller'
 import { buildTokensCss, defaultTheme } from '../styles/tokens'
-import type { LinteauThemeTokens } from '../styles/tokens'
+import type { PendentiveThemeTokens } from '../styles/tokens'
 
-const TOKENS_STYLE_ID = 'linteau-tokens'
+const TOKENS_STYLE_ID = 'pendentive-tokens'
 
-let currentTheme: LinteauThemeTokens = { ...defaultTheme }
-const emitter = createEmitter<{ change: Readonly<LinteauThemeTokens> }>()
+let currentTheme: PendentiveThemeTokens = { ...defaultTheme }
+const emitter = createEmitter<{ change: Readonly<PendentiveThemeTokens> }>()
 
 function applyThemeToDom(): void {
   if (!isBrowser()) return
@@ -20,24 +20,24 @@ function applyThemeToDom(): void {
 }
 
 /** Returns the currently active theme tokens (read-only snapshot). */
-export function getTheme(): Readonly<LinteauThemeTokens> {
+export function getTheme(): Readonly<PendentiveThemeTokens> {
   return currentTheme
 }
 
 /**
  * Overrides one or more theme tokens at runtime. Any token you omit keeps
- * its current value. Re-injects the `:root { --linteau-* }` style tag and
+ * its current value. Re-injects the `:root { --pendentive-* }` style tag and
  * notifies subscribers registered via `onThemeChange`.
  *
  * @param overrides - Partial theme tokens to merge over the current theme.
  */
-export function setTheme(overrides: Partial<LinteauThemeTokens>): void {
+export function setTheme(overrides: Partial<PendentiveThemeTokens>): void {
   currentTheme = { ...currentTheme, ...overrides }
   applyThemeToDom()
   emitter.emit('change', currentTheme)
 }
 
-/** Restores every theme token to Linteau's built-in defaults. */
+/** Restores every theme token to Pendentive's built-in defaults. */
 export function resetTheme(): void {
   currentTheme = { ...defaultTheme }
   applyThemeToDom()
@@ -48,7 +48,7 @@ export function resetTheme(): void {
  * Subscribes to theme changes made via `setTheme`/`resetTheme`.
  * @returns An unsubscribe function.
  */
-export function onThemeChange(listener: (theme: Readonly<LinteauThemeTokens>) => void): () => void {
+export function onThemeChange(listener: (theme: Readonly<PendentiveThemeTokens>) => void): () => void {
   return emitter.on('change', listener)
 }
 

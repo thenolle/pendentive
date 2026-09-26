@@ -36,14 +36,14 @@ export type ProgressBarElement = HTMLDivElement & ProgressBarApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const progressBarCss = `
-.linteau-progress-overlay { position: fixed; inset: 0; background: color-mix(in oklch, black 55%, transparent); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px) }
-.linteau-progress-card { width: 280px; background: var(--linteau-card); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg); padding: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) }
-.linteau-progress-title { font-size: 13px; font-weight: 600; margin-bottom: 12px; color: var(--linteau-foreground) }
-.linteau-progress-track { width: 100%; height: 8px; border-radius: 999px; background: var(--linteau-secondary); overflow: hidden; position: relative }
-.linteau-progress-fill { height: 100%; width: 0%; background: var(--linteau-primary); border-radius: 999px; transition: width 180ms ease }
-.linteau-progress-fill.linteau-indeterminate { width: 40% !important; animation: linteau-progress-slide 1.1s ease-in-out infinite }
-@keyframes linteau-progress-slide { 0% { transform: translateX(-100%) } 100% { transform: translateX(250%) } }
-.linteau-progress-percent { margin-top: 8px; font-size: 12px; color: var(--linteau-muted-foreground); text-align: right; font-variant-numeric: tabular-nums }
+.pendentive-progress-overlay { position: fixed; inset: 0; background: color-mix(in oklch, black 55%, transparent); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px) }
+.pendentive-progress-card { width: 280px; background: var(--pendentive-card); border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-lg); padding: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) }
+.pendentive-progress-title { font-size: 13px; font-weight: 600; margin-bottom: 12px; color: var(--pendentive-foreground) }
+.pendentive-progress-track { width: 100%; height: 8px; border-radius: 999px; background: var(--pendentive-secondary); overflow: hidden; position: relative }
+.pendentive-progress-fill { height: 100%; width: 0%; background: var(--pendentive-primary); border-radius: 999px; transition: width 180ms ease }
+.pendentive-progress-fill.pendentive-indeterminate { width: 40% !important; animation: pendentive-progress-slide 1.1s ease-in-out infinite }
+@keyframes pendentive-progress-slide { 0% { transform: translateX(-100%) } 100% { transform: translateX(250%) } }
+.pendentive-progress-percent { margin-top: 8px; font-size: 12px; color: var(--pendentive-muted-foreground); text-align: right; font-variant-numeric: tabular-nums }
 `
 
 /** Creates a full-screen progress overlay, ideal for long-running async operations. */

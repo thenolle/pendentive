@@ -26,8 +26,8 @@ export type SpinnerElement = SVGSVGElement & SpinnerApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const spinnerCss = `
-.linteau-spinner { animation: linteau-spin 0.8s linear infinite; color: var(--linteau-muted-foreground) }
-@keyframes linteau-spin { to { transform: rotate(360deg) } }
+.pendentive-spinner { animation: pendentive-spin 0.8s linear infinite; color: var(--pendentive-muted-foreground) }
+@keyframes pendentive-spin { to { transform: rotate(360deg) } }
 `
 
 /** Creates a small, continuously rotating loading indicator. */

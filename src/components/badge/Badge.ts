@@ -31,7 +31,7 @@ export type BadgeElement = HTMLSpanElement & BadgeApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const badgeCss = `
-.linteau-badge {
+.pendentive-badge {
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -42,11 +42,11 @@ export const badgeCss = `
   line-height: 1.6;
   border: 1px solid transparent;
 }
-.linteau-badge-default { background: var(--linteau-secondary); color: var(--linteau-secondary-foreground) }
-.linteau-badge-outline { background: transparent; border-color: var(--linteau-border); color: var(--linteau-foreground) }
-.linteau-badge-success { background: var(--linteau-success); color: var(--linteau-success-foreground) }
-.linteau-badge-warning { background: var(--linteau-warning); color: var(--linteau-warning-foreground) }
-.linteau-badge-destructive { background: var(--linteau-destructive); color: var(--linteau-destructive-foreground) }
+.pendentive-badge-default { background: var(--pendentive-secondary); color: var(--pendentive-secondary-foreground) }
+.pendentive-badge-outline { background: transparent; border-color: var(--pendentive-border); color: var(--pendentive-foreground) }
+.pendentive-badge-success { background: var(--pendentive-success); color: var(--pendentive-success-foreground) }
+.pendentive-badge-warning { background: var(--pendentive-warning); color: var(--pendentive-warning-foreground) }
+.pendentive-badge-destructive { background: var(--pendentive-destructive); color: var(--pendentive-destructive-foreground) }
 `
 
 /** Creates a small pill-shaped status/label indicator. */

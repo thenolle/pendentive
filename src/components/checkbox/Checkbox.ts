@@ -40,23 +40,23 @@ export type CheckboxElement = HTMLDivElement & CheckboxApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const checkboxCss = `
-.linteau-checkbox-row { display: flex; align-items: center; gap: 8px }
-.linteau-checkbox {
+.pendentive-checkbox-row { display: flex; align-items: center; gap: 8px }
+.pendentive-checkbox {
   width: 18px;
   height: 18px;
-  border-radius: var(--linteau-radius-sm);
-  border: 1px solid var(--linteau-border);
-  background: var(--linteau-secondary);
+  border-radius: var(--pendentive-radius-sm);
+  border: 1px solid var(--pendentive-border);
+  background: var(--pendentive-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--linteau-primary-foreground);
+  color: var(--pendentive-primary-foreground);
 }
-.linteau-checkbox:disabled { opacity: 0.5; cursor: not-allowed }
-.linteau-checkbox.linteau-checked { background: var(--linteau-primary); border-color: var(--linteau-primary) }
-.linteau-checkbox svg { display: none }
-.linteau-checkbox.linteau-checked svg, .linteau-checkbox.linteau-indeterminate svg { display: block }
+.pendentive-checkbox:disabled { opacity: 0.5; cursor: not-allowed }
+.pendentive-checkbox.pendentive-checked { background: var(--pendentive-primary); border-color: var(--pendentive-primary) }
+.pendentive-checkbox svg { display: none }
+.pendentive-checkbox.pendentive-checked svg, .pendentive-checkbox.pendentive-indeterminate svg { display: block }
 `
 
 /** Creates a labeled checkbox, supporting controlled/uncontrolled and indeterminate states. */

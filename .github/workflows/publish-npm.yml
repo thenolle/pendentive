@@ -43,7 +43,7 @@ jobs:
       - name: Check if this version is already published
         id: check
         run: |
-          if npm view linteau@${{ steps.version.outputs.value }} version >/dev/null 2>&1; then
+          if npm view pendentive@${{ steps.version.outputs.value }} version >/dev/null 2>&1; then
             echo "exists=true" >> "$GITHUB_OUTPUT"
           else
             echo "exists=false" >> "$GITHUB_OUTPUT"
@@ -51,7 +51,7 @@ jobs:
 
       - name: Skip -- version already on npm
         if: github.event_name != 'workflow_dispatch' && steps.check.outputs.exists == 'true'
-        run: echo "linteau@${{ steps.version.outputs.value }} is already published, skipping."
+        run: echo "pendentive@${{ steps.version.outputs.value }} is already published, skipping."
 
       - name: Build full package
         if: github.event_name == 'workflow_dispatch' || steps.check.outputs.exists == 'false'

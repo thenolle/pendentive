@@ -36,12 +36,12 @@ export type PaginationElement = HTMLDivElement & PaginationApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const paginationCss = `
-.linteau-pagination { display: flex; align-items: center; gap: 4px }
-.linteau-pagination-item { min-width: 28px; height: 28px; padding: 0 6px; display: flex; align-items: center; justify-content: center; border-radius: var(--linteau-radius-sm); border: 1px solid transparent; background: transparent; color: var(--linteau-muted-foreground); font-size: 12px; cursor: pointer; font-family: inherit }
-.linteau-pagination-item:hover:not(:disabled) { background: var(--linteau-accent) }
-.linteau-pagination-item:disabled { opacity: 0.4; cursor: not-allowed }
-.linteau-pagination-item-active { background: var(--linteau-primary); color: var(--linteau-primary-foreground) }
-.linteau-pagination-ellipsis { color: var(--linteau-muted-foreground); padding: 0 4px }
+.pendentive-pagination { display: flex; align-items: center; gap: 4px }
+.pendentive-pagination-item { min-width: 28px; height: 28px; padding: 0 6px; display: flex; align-items: center; justify-content: center; border-radius: var(--pendentive-radius-sm); border: 1px solid transparent; background: transparent; color: var(--pendentive-muted-foreground); font-size: 12px; cursor: pointer; font-family: inherit }
+.pendentive-pagination-item:hover:not(:disabled) { background: var(--pendentive-accent) }
+.pendentive-pagination-item:disabled { opacity: 0.4; cursor: not-allowed }
+.pendentive-pagination-item-active { background: var(--pendentive-primary); color: var(--pendentive-primary-foreground) }
+.pendentive-pagination-ellipsis { color: var(--pendentive-muted-foreground); padding: 0 4px }
 `
 
 function buildRange(current: number, pageCount: number, siblingCount: number): Array<number | 'ellipsis'> {

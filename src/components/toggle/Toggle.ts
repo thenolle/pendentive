@@ -45,27 +45,27 @@ export type ToggleElement = HTMLButtonElement & ToggleApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const toggleCss = `
-.linteau-toggle {
+.pendentive-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  border-radius: var(--linteau-radius-sm);
+  border-radius: var(--pendentive-radius-sm);
   border: 1px solid transparent;
   background: transparent;
-  color: var(--linteau-muted-foreground);
+  color: var(--pendentive-muted-foreground);
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
   font-family: inherit;
   transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
 }
-.linteau-toggle-default { padding: 8px 12px }
-.linteau-toggle-sm { padding: 5px 8px; font-size: 12px }
-.linteau-toggle:hover:not(:disabled) { background: var(--linteau-accent); color: var(--linteau-foreground) }
-.linteau-toggle:disabled { opacity: 0.5; cursor: not-allowed }
-.linteau-toggle-outline { border-color: var(--linteau-border) }
-.linteau-toggle.linteau-pressed { background: var(--linteau-accent); color: var(--linteau-foreground) }
+.pendentive-toggle-default { padding: 8px 12px }
+.pendentive-toggle-sm { padding: 5px 8px; font-size: 12px }
+.pendentive-toggle:hover:not(:disabled) { background: var(--pendentive-accent); color: var(--pendentive-foreground) }
+.pendentive-toggle:disabled { opacity: 0.5; cursor: not-allowed }
+.pendentive-toggle-outline { border-color: var(--pendentive-border) }
+.pendentive-toggle.pendentive-pressed { background: var(--pendentive-accent); color: var(--pendentive-foreground) }
 `
 
 /** Creates a single pressable toggle button -- a two-state control (like a checkbox rendered as a button), useful for toolbar options (bold, italic, view modes). */

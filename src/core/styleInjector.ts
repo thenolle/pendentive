@@ -1,12 +1,12 @@
 import { isBrowser } from './dom'
 
-const STYLE_ID = 'linteau-styles'
+const STYLE_ID = 'pendentive-styles'
 const injectedKeys = new Set<string>()
 
 /** A handful of utility classes nearly every component depends on (icon color, hidden state). Injected once, ahead of any component-specific CSS. */
 const baseCss = `
-.linteau-hidden { display: none !important }
-.linteau-icon { color: var(--linteau-muted-foreground); flex-shrink: 0 }
+.pendentive-hidden { display: none !important }
+.pendentive-icon { color: var(--pendentive-muted-foreground); flex-shrink: 0 }
 `
 
 function getStyleSheet(): HTMLStyleElement | null {

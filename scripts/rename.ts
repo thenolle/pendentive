@@ -42,9 +42,9 @@ async function collectFiles(dir: string): Promise<string[]> {
 
 /**
  * Applies Pascal -> Pascal, UPPER -> UPPER, then plain lower -> lower substitutions in that
- * order, so `Linteau` and `LINTEAU` are replaced before the final unguarded `linteau` pass, which
- * intentionally has no word boundaries -- it's what catches `linteau-button`, `--linteau-border`,
- * and `linteau.global.js`.
+ * order, so `Pendentive` and `PENDENTIVE` are replaced before the final unguarded `pendentive` pass, which
+ * intentionally has no word boundaries -- it's what catches `pendentive-button`, `--pendentive-border`,
+ * and `pendentive.global.js`.
  */
 function renameOccurrences(content: string, from: NameCasing, to: NameCasing): { content: string; count: number } {
   const passes: Array<[RegExp, string]> = [

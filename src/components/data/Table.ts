@@ -45,13 +45,13 @@ export type TableElement<TRow> = HTMLDivElement & TableApi<TRow>
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const tableCss = `
-.linteau-table-wrap { width: 100%; overflow-x: auto; border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg) }
-.linteau-table { width: 100%; border-collapse: collapse; font-size: 12px }
-.linteau-table th { text-align: left; padding: 10px 12px; background: var(--linteau-muted); color: var(--linteau-muted-foreground); font-weight: 600; border-bottom: 1px solid var(--linteau-border); cursor: default; white-space: nowrap }
-.linteau-table th.linteau-table-sortable { cursor: pointer; user-select: none }
-.linteau-table td { padding: 10px 12px; border-bottom: 1px solid var(--linteau-border); color: var(--linteau-foreground) }
-.linteau-table tr:last-child td { border-bottom: none }
-.linteau-table-sort-icon { display: inline-block; margin-left: 4px; vertical-align: middle }
+.pendentive-table-wrap { width: 100%; overflow-x: auto; border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-lg) }
+.pendentive-table { width: 100%; border-collapse: collapse; font-size: 12px }
+.pendentive-table th { text-align: left; padding: 10px 12px; background: var(--pendentive-muted); color: var(--pendentive-muted-foreground); font-weight: 600; border-bottom: 1px solid var(--pendentive-border); cursor: default; white-space: nowrap }
+.pendentive-table th.pendentive-table-sortable { cursor: pointer; user-select: none }
+.pendentive-table td { padding: 10px 12px; border-bottom: 1px solid var(--pendentive-border); color: var(--pendentive-foreground) }
+.pendentive-table tr:last-child td { border-bottom: none }
+.pendentive-table-sort-icon { display: inline-block; margin-left: 4px; vertical-align: middle }
 `
 
 /** Creates a data table with optional click-to-sort headers and custom cell rendering. */

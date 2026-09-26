@@ -40,15 +40,15 @@ export type SectionElement = HTMLDivElement & SectionApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const sectionCss = `
-.linteau-section { border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg); background: var(--linteau-muted); overflow: hidden; width: 100% }
-.linteau-section-header { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--linteau-border); color: var(--linteau-muted-foreground); cursor: default }
-.linteau-section-header.linteau-section-collapsible { cursor: pointer }
-.linteau-section-header h3 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; flex: 1 }
-.linteau-section-actions { display: flex; align-items: center; gap: 6px }
-.linteau-section-body { padding: 12px; display: flex; flex-direction: column; gap: 12px }
-.linteau-section-body.linteau-collapsed { display: none }
-.linteau-section-chevron { transition: transform 150ms ease }
-.linteau-section-chevron.linteau-collapsed { transform: rotate(-90deg) }
+.pendentive-section { border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-lg); background: var(--pendentive-muted); overflow: hidden; width: 100% }
+.pendentive-section-header { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--pendentive-border); color: var(--pendentive-muted-foreground); cursor: default }
+.pendentive-section-header.pendentive-section-collapsible { cursor: pointer }
+.pendentive-section-header h3 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; flex: 1 }
+.pendentive-section-actions { display: flex; align-items: center; gap: 6px }
+.pendentive-section-body { padding: 12px; display: flex; flex-direction: column; gap: 12px }
+.pendentive-section-body.pendentive-collapsed { display: none }
+.pendentive-section-chevron { transition: transform 150ms ease }
+.pendentive-section-chevron.pendentive-collapsed { transform: rotate(-90deg) }
 `
 
 /** Creates a titled, bordered container -- the primary layout grouping primitive of the library. */

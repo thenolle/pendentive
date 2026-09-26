@@ -46,13 +46,13 @@ export type ListElement = HTMLDivElement & ListApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const listCss = `
-.linteau-list { display: flex; flex-direction: column; gap: 2px; width: 100% }
-.linteau-list-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: var(--linteau-radius-sm); cursor: pointer }
-.linteau-list-item:hover { background: var(--linteau-accent) }
-.linteau-list-item-selected { background: var(--linteau-accent) }
-.linteau-list-item-text { display: flex; flex-direction: column }
-.linteau-list-item-label { font-size: 13px; color: var(--linteau-foreground) }
-.linteau-list-item-description { font-size: 11px; color: var(--linteau-muted-foreground) }
+.pendentive-list { display: flex; flex-direction: column; gap: 2px; width: 100% }
+.pendentive-list-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: var(--pendentive-radius-sm); cursor: pointer }
+.pendentive-list-item:hover { background: var(--pendentive-accent) }
+.pendentive-list-item-selected { background: var(--pendentive-accent) }
+.pendentive-list-item-text { display: flex; flex-direction: column }
+.pendentive-list-item-label { font-size: 13px; color: var(--pendentive-foreground) }
+.pendentive-list-item-description { font-size: 11px; color: var(--pendentive-muted-foreground) }
 `
 
 /** Creates a vertical list of rows, optionally single-selectable. */

@@ -38,11 +38,11 @@ export type ChipInputElement = HTMLDivElement & ChipInputApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const chipInputCss = `
-.linteau-chip-field { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; background: var(--linteau-secondary); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-sm) }
-.linteau-chip-field:focus-within { border-color: var(--linteau-ring) }
-.linteau-chip { display: inline-flex; align-items: center; gap: 4px; background: var(--linteau-accent); color: var(--linteau-accent-foreground); border-radius: 999px; padding: 3px 8px; font-size: 11px }
-.linteau-chip-remove { background: transparent; border: none; color: inherit; cursor: pointer; display: flex; padding: 0 }
-.linteau-chip-input { flex: 1; min-width: 80px; background: transparent; border: none; color: var(--linteau-foreground); font-size: 12px; font-family: inherit; outline: none }
+.pendentive-chip-field { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; background: var(--pendentive-secondary); border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-sm) }
+.pendentive-chip-field:focus-within { border-color: var(--pendentive-ring) }
+.pendentive-chip { display: inline-flex; align-items: center; gap: 4px; background: var(--pendentive-accent); color: var(--pendentive-accent-foreground); border-radius: 999px; padding: 3px 8px; font-size: 11px }
+.pendentive-chip-remove { background: transparent; border: none; color: inherit; cursor: pointer; display: flex; padding: 0 }
+.pendentive-chip-input { flex: 1; min-width: 80px; background: transparent; border: none; color: var(--pendentive-foreground); font-size: 12px; font-family: inherit; outline: none }
 `
 
 /** Creates a labeled tag/chip input: press Enter to add the typed text as a removable chip. */

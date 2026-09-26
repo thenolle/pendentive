@@ -63,5 +63,5 @@ jobs:
           name: v${{ steps.version.outputs.value }}
           generate_release_notes: true
           files: |
-            dist/linteau.global.js
-            dist/linteau.global.js.map
+            dist/pendentive.global.js
+            dist/pendentive.global.js.map

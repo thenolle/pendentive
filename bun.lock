@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "linteau",
+      "name": "pendentive",
       "devDependencies": {
         "@types/bun": "^1.4.2",
         "esbuild": "^0.28.2",

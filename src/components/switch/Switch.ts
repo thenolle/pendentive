@@ -41,12 +41,12 @@ export type SwitchElement = HTMLDivElement & SwitchApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const switchCss = `
-.linteau-switch-row { display: flex; align-items: center; justify-content: space-between }
-.linteau-switch { width: 38px; height: 22px; border-radius: 999px; background: var(--linteau-secondary); border: 1px solid var(--linteau-border); padding: 2px; cursor: pointer; display: flex; align-items: center; transition: background 150ms ease }
-.linteau-switch:disabled { opacity: 0.5; cursor: not-allowed }
-.linteau-switch.linteau-checked { background: var(--linteau-primary) }
-.linteau-switch-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--linteau-card); transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1); transform: translateX(0) }
-.linteau-switch.linteau-checked .linteau-switch-thumb { transform: translateX(16px); background: var(--linteau-primary-foreground) }
+.pendentive-switch-row { display: flex; align-items: center; justify-content: space-between }
+.pendentive-switch { width: 38px; height: 22px; border-radius: 999px; background: var(--pendentive-secondary); border: 1px solid var(--pendentive-border); padding: 2px; cursor: pointer; display: flex; align-items: center; transition: background 150ms ease }
+.pendentive-switch:disabled { opacity: 0.5; cursor: not-allowed }
+.pendentive-switch.pendentive-checked { background: var(--pendentive-primary) }
+.pendentive-switch-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--pendentive-card); transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1); transform: translateX(0) }
+.pendentive-switch.pendentive-checked .pendentive-switch-thumb { transform: translateX(16px); background: var(--pendentive-primary-foreground) }
 `
 
 /** Creates a labeled on/off toggle, supporting both controlled and uncontrolled usage. */

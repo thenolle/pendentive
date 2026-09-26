@@ -33,15 +33,15 @@ export interface ToastManager {
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const toastCss = `
-.linteau-toast-viewport { position: fixed; bottom: 16px; right: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 1400; width: min(340px, 92vw) }
-.linteau-toast { display: flex; gap: 8px; background: var(--linteau-card); border: 1px solid var(--linteau-border); border-left: 3px solid var(--linteau-primary); border-radius: var(--linteau-radius-md); padding: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) }
-.linteau-toast-success { border-left-color: var(--linteau-success) }
-.linteau-toast-warning { border-left-color: var(--linteau-warning) }
-.linteau-toast-destructive { border-left-color: var(--linteau-destructive) }
-.linteau-toast-body { flex: 1 }
-.linteau-toast-title { font-size: 12px; font-weight: 600 }
-.linteau-toast-description { font-size: 12px; color: var(--linteau-muted-foreground); margin-top: 2px }
-.linteau-toast-close { background: transparent; border: none; color: var(--linteau-muted-foreground); cursor: pointer; display: flex; align-self: flex-start }
+.pendentive-toast-viewport { position: fixed; bottom: 16px; right: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 1400; width: min(340px, 92vw) }
+.pendentive-toast { display: flex; gap: 8px; background: var(--pendentive-card); border: 1px solid var(--pendentive-border); border-left: 3px solid var(--pendentive-primary); border-radius: var(--pendentive-radius-md); padding: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) }
+.pendentive-toast-success { border-left-color: var(--pendentive-success) }
+.pendentive-toast-warning { border-left-color: var(--pendentive-warning) }
+.pendentive-toast-destructive { border-left-color: var(--pendentive-destructive) }
+.pendentive-toast-body { flex: 1 }
+.pendentive-toast-title { font-size: 12px; font-weight: 600 }
+.pendentive-toast-description { font-size: 12px; color: var(--pendentive-muted-foreground); margin-top: 2px }
+.pendentive-toast-close { background: transparent; border: none; color: var(--pendentive-muted-foreground); cursor: pointer; display: flex; align-self: flex-start }
 `
 
 let idCounter = 0
@@ -66,7 +66,7 @@ export function createToastManager(): ToastManager {
     document.getElementById(id)?.remove()
   }
   function show(options: ToastOptions): string {
-    const id = `linteau-toast-${++idCounter}`
+    const id = `pendentive-toast-${++idCounter}`
     const variant = options.variant ?? 'default'
     const duration = options.duration ?? 4000
     const toastEl = el('div', cx(px('toast'), px(`toast-${variant}`)))

@@ -7,9 +7,9 @@
  * field-style components an app uses.
  */
 export const fieldBaseCss = `
-.linteau-field { display: flex; flex-direction: column; gap: 6px; width: 100% }
-.linteau-field-row { display: flex; align-items: center; justify-content: space-between }
-.linteau-field-label { display: flex; align-items: center; gap: 6px; color: var(--linteau-foreground) }
-.linteau-field-value { color: var(--linteau-muted-foreground); font-variant-numeric: tabular-nums }
-.linteau-field-header { display: flex; justify-content: space-between; align-items: center; font-size: 12px }
+.pendentive-field { display: flex; flex-direction: column; gap: 6px; width: 100% }
+.pendentive-field-row { display: flex; align-items: center; justify-content: space-between }
+.pendentive-field-label { display: flex; align-items: center; gap: 6px; color: var(--pendentive-foreground) }
+.pendentive-field-value { color: var(--pendentive-muted-foreground); font-variant-numeric: tabular-nums }
+.pendentive-field-header { display: flex; justify-content: space-between; align-items: center; font-size: 12px }
 `

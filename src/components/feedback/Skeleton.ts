@@ -24,8 +24,8 @@ export type SkeletonElement = HTMLDivElement & SkeletonApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const skeletonCss = `
-.linteau-skeleton { background: linear-gradient(90deg, var(--linteau-secondary) 25%, var(--linteau-accent) 37%, var(--linteau-secondary) 63%); background-size: 400% 100%; animation: linteau-skeleton-shine 1.4s ease infinite; border-radius: var(--linteau-radius-sm) }
-@keyframes linteau-skeleton-shine { 0% { background-position: 100% 50% } 100% { background-position: 0 50% } }
+.pendentive-skeleton { background: linear-gradient(90deg, var(--pendentive-secondary) 25%, var(--pendentive-accent) 37%, var(--pendentive-secondary) 63%); background-size: 400% 100%; animation: pendentive-skeleton-shine 1.4s ease infinite; border-radius: var(--pendentive-radius-sm) }
+@keyframes pendentive-skeleton-shine { 0% { background-position: 100% 50% } 100% { background-position: 0 50% } }
 `
 
 /** Creates an animated shimmering placeholder for content that's still loading. */

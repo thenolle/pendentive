@@ -44,12 +44,12 @@ export type TabsElement = HTMLDivElement & TabsApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const tabsCss = `
-.linteau-tabs { display: flex; flex-direction: column; gap: 12px; width: 100% }
-.linteau-tabs-list { display: flex; gap: 4px; border-bottom: 1px solid var(--linteau-border) }
-.linteau-tabs-trigger { background: transparent; border: none; border-bottom: 2px solid transparent; padding: 8px 12px; font-size: 12px; font-weight: 500; color: var(--linteau-muted-foreground); cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: inherit }
-.linteau-tabs-trigger:hover { color: var(--linteau-foreground) }
-.linteau-tabs-trigger-active { color: var(--linteau-foreground); border-bottom-color: var(--linteau-primary) }
-.linteau-tabs-panel { width: 100% }
+.pendentive-tabs { display: flex; flex-direction: column; gap: 12px; width: 100% }
+.pendentive-tabs-list { display: flex; gap: 4px; border-bottom: 1px solid var(--pendentive-border) }
+.pendentive-tabs-trigger { background: transparent; border: none; border-bottom: 2px solid transparent; padding: 8px 12px; font-size: 12px; font-weight: 500; color: var(--pendentive-muted-foreground); cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: inherit }
+.pendentive-tabs-trigger:hover { color: var(--pendentive-foreground) }
+.pendentive-tabs-trigger-active { color: var(--pendentive-foreground); border-bottom-color: var(--pendentive-primary) }
+.pendentive-tabs-panel { width: 100% }
 `
 
 /** Creates a tabbed container: a trigger list plus a panel that swaps content per active tab. */

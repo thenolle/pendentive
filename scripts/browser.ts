@@ -6,10 +6,10 @@ await build({
   minify: true,
   sourcemap: true,
   format: 'iife',
-  globalName: 'Linteau',
+  globalName: 'Pendentive',
   target: 'es2022',
   platform: 'browser',
-  outfile: 'dist/linteau.global.js'
+  outfile: 'dist/pendentive.global.js'
 })
 
-console.log('[linteau] browser bundle built -> dist/linteau.global.js')
+console.log('[pendentive] browser bundle built -> dist/pendentive.global.js')

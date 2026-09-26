@@ -43,13 +43,13 @@ export type TreeElement = HTMLDivElement & TreeApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const treeCss = `
-.linteau-tree { display: flex; flex-direction: column; gap: 2px }
-.linteau-tree-row { display: flex; align-items: center; gap: 6px; padding: 6px 8px; border-radius: var(--linteau-radius-sm); cursor: pointer; font-size: 12px }
-.linteau-tree-row:hover { background: var(--linteau-accent) }
-.linteau-tree-chevron { transition: transform 150ms ease }
-.linteau-tree-chevron.linteau-open { transform: rotate(90deg) }
-.linteau-tree-children { margin-left: 18px; display: flex; flex-direction: column; gap: 2px }
-.linteau-tree-children.linteau-collapsed { display: none }
+.pendentive-tree { display: flex; flex-direction: column; gap: 2px }
+.pendentive-tree-row { display: flex; align-items: center; gap: 6px; padding: 6px 8px; border-radius: var(--pendentive-radius-sm); cursor: pointer; font-size: 12px }
+.pendentive-tree-row:hover { background: var(--pendentive-accent) }
+.pendentive-tree-chevron { transition: transform 150ms ease }
+.pendentive-tree-chevron.pendentive-open { transform: rotate(90deg) }
+.pendentive-tree-children { margin-left: 18px; display: flex; flex-direction: column; gap: 2px }
+.pendentive-tree-children.pendentive-collapsed { display: none }
 `
 
 /** Creates a recursively nested, expandable tree of nodes. */

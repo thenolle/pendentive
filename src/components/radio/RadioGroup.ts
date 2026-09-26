@@ -42,13 +42,13 @@ export type RadioGroupElement = HTMLDivElement & RadioGroupApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const radioCss = `
-.linteau-radio-group { display: flex; flex-direction: column; gap: 8px }
-.linteau-radio-row { display: flex; align-items: center; gap: 8px; cursor: pointer }
-.linteau-radio-row.linteau-disabled { opacity: 0.5; cursor: not-allowed }
-.linteau-radio { width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--linteau-border); background: var(--linteau-secondary); display: flex; align-items: center; justify-content: center; flex-shrink: 0 }
-.linteau-radio.linteau-checked { border-color: var(--linteau-primary) }
-.linteau-radio-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--linteau-primary); opacity: 0; transition: opacity 100ms ease }
-.linteau-radio.linteau-checked .linteau-radio-dot { opacity: 1 }
+.pendentive-radio-group { display: flex; flex-direction: column; gap: 8px }
+.pendentive-radio-row { display: flex; align-items: center; gap: 8px; cursor: pointer }
+.pendentive-radio-row.pendentive-disabled { opacity: 0.5; cursor: not-allowed }
+.pendentive-radio { width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--pendentive-border); background: var(--pendentive-secondary); display: flex; align-items: center; justify-content: center; flex-shrink: 0 }
+.pendentive-radio.pendentive-checked { border-color: var(--pendentive-primary) }
+.pendentive-radio-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pendentive-primary); opacity: 0; transition: opacity 100ms ease }
+.pendentive-radio.pendentive-checked .pendentive-radio-dot { opacity: 1 }
 `
 
 /** Creates a single-select group of radio rows. */

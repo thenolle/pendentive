@@ -1,4 +1,4 @@
-/** A single SVG child element in Linteau's lightweight icon format: [tagName, attributes]. */
+/** A single SVG child element in Pendentive's lightweight icon format: [tagName, attributes]. */
 export type IconChildNode = readonly [tag: string, attrs: Record<string, string>]
 
 /** The full shape of an icon: an ordered list of child nodes rendered inside a root <svg>. Compatible with lucide-style icon exports. */

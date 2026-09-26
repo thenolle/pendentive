@@ -88,12 +88,12 @@ export type DropdownMenuElement = HTMLDivElement & DropdownMenuApi
 
 /** This component's own CSS. Reused by `ContextMenu` under the same `menu` key, so it's only ever injected once. */
 export const menuCss = `
-.linteau-menu { position: fixed; z-index: 1200; min-width: 160px; background: var(--linteau-card); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-md); padding: 4px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) }
-.linteau-menu-item { display: flex; align-items: center; gap: 8px; padding: 7px 8px; border-radius: var(--linteau-radius-sm); font-size: 12px; color: var(--linteau-foreground); cursor: pointer }
-.linteau-menu-item:hover:not(.linteau-menu-item-disabled) { background: var(--linteau-accent) }
-.linteau-menu-item-disabled { opacity: 0.5; cursor: not-allowed }
-.linteau-menu-item-destructive { color: var(--linteau-destructive) }
-.linteau-menu-separator { height: 1px; background: var(--linteau-border); margin: 4px 0 }
+.pendentive-menu { position: fixed; z-index: 1200; min-width: 160px; background: var(--pendentive-card); border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-md); padding: 4px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) }
+.pendentive-menu-item { display: flex; align-items: center; gap: 8px; padding: 7px 8px; border-radius: var(--pendentive-radius-sm); font-size: 12px; color: var(--pendentive-foreground); cursor: pointer }
+.pendentive-menu-item:hover:not(.pendentive-menu-item-disabled) { background: var(--pendentive-accent) }
+.pendentive-menu-item-disabled { opacity: 0.5; cursor: not-allowed }
+.pendentive-menu-item-destructive { color: var(--pendentive-destructive) }
+.pendentive-menu-separator { height: 1px; background: var(--pendentive-border); margin: 4px 0 }
 `
 
 /** Creates a floating action menu anchored to another element, toggled by clicking that anchor. */

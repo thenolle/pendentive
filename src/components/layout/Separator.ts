@@ -22,9 +22,9 @@ export type SeparatorElement = HTMLHRElement & SeparatorApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const separatorCss = `
-.linteau-separator { background: var(--linteau-border); border: none; flex-shrink: 0 }
-.linteau-separator-horizontal { width: 100%; height: 1px }
-.linteau-separator-vertical { width: 1px; height: 100% }
+.pendentive-separator { background: var(--pendentive-border); border: none; flex-shrink: 0 }
+.pendentive-separator-horizontal { width: 100%; height: 1px }
+.pendentive-separator-vertical { width: 1px; height: 100% }
 `
 
 /** Creates a thin dividing line, horizontal or vertical. */

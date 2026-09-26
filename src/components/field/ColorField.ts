@@ -39,9 +39,9 @@ export type ColorFieldElement = HTMLDivElement & ColorFieldApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const swatchCss = `
-.linteau-swatch { --linteau-swatch-color: #ffffff; width: 28px; height: 28px; border-radius: var(--linteau-radius-sm); background: var(--linteau-swatch-color); border: 1px solid var(--linteau-border); cursor: pointer; display: block; position: relative; overflow: hidden; transition: transform 120ms ease }
-.linteau-swatch:hover { transform: scale(1.06) }
-.linteau-swatch input[type='color'] { position: absolute; inset: 0; opacity: 0; cursor: pointer }
+.pendentive-swatch { --pendentive-swatch-color: #ffffff; width: 28px; height: 28px; border-radius: var(--pendentive-radius-sm); background: var(--pendentive-swatch-color); border: 1px solid var(--pendentive-border); cursor: pointer; display: block; position: relative; overflow: hidden; transition: transform 120ms ease }
+.pendentive-swatch:hover { transform: scale(1.06) }
+.pendentive-swatch input[type='color'] { position: absolute; inset: 0; opacity: 0; cursor: pointer }
 `
 
 /** Creates a labeled native color-picker swatch, supporting controlled and uncontrolled usage. */
@@ -58,14 +58,14 @@ export function ColorField(options: ColorFieldOptions): ColorFieldElement {
   labelText.textContent = options.label
   labelWrap.appendChild(labelText)
   const swatch = el('label', px('swatch'))
-  swatch.style.setProperty('--linteau-swatch-color', value)
+  swatch.style.setProperty('--pendentive-swatch-color', value)
   const input = el('input', undefined)
   input.type = 'color'
   input.value = value
   input.disabled = options.disabled ?? false
   const listener = (): void => {
     value = input.value
-    swatch.style.setProperty('--linteau-swatch-color', value)
+    swatch.style.setProperty('--pendentive-swatch-color', value)
     onChange?.(value)
   }
   input.addEventListener('input', listener)
@@ -78,7 +78,7 @@ export function ColorField(options: ColorFieldOptions): ColorFieldElement {
     setValue(newValue) {
       value = newValue
       input.value = newValue
-      swatch.style.setProperty('--linteau-swatch-color', newValue)
+      swatch.style.setProperty('--pendentive-swatch-color', newValue)
     },
     setDisabled(disabled) {
       input.disabled = disabled

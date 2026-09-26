@@ -49,16 +49,16 @@ export type DrawerElement = HTMLDivElement & DrawerApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const drawerCss = `
-.linteau-drawer-overlay { position: fixed; inset: 0; background: color-mix(in oklch, black 55%, transparent); z-index: 1000 }
-.linteau-drawer-panel { position: fixed; background: var(--linteau-card); border: 1px solid var(--linteau-border); display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); transition: transform 200ms ease }
-.linteau-drawer-right { top: 0; right: 0; bottom: 0; width: min(360px, 90vw); transform: translateX(0) }
-.linteau-drawer-left { top: 0; left: 0; bottom: 0; width: min(360px, 90vw); transform: translateX(0) }
-.linteau-drawer-top { top: 0; left: 0; right: 0; height: min(320px, 80vh); transform: translateY(0) }
-.linteau-drawer-bottom { bottom: 0; left: 0; right: 0; height: min(320px, 80vh); transform: translateY(0) }
-.linteau-drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--linteau-border) }
-.linteau-drawer-title { font-size: 14px; font-weight: 600 }
-.linteau-drawer-close { background: transparent; border: none; color: var(--linteau-muted-foreground); cursor: pointer; display: flex; padding: 4px; border-radius: var(--linteau-radius-sm) }
-.linteau-drawer-body { padding: 16px; overflow-y: auto; flex: 1 }
+.pendentive-drawer-overlay { position: fixed; inset: 0; background: color-mix(in oklch, black 55%, transparent); z-index: 1000 }
+.pendentive-drawer-panel { position: fixed; background: var(--pendentive-card); border: 1px solid var(--pendentive-border); display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); transition: transform 200ms ease }
+.pendentive-drawer-right { top: 0; right: 0; bottom: 0; width: min(360px, 90vw); transform: translateX(0) }
+.pendentive-drawer-left { top: 0; left: 0; bottom: 0; width: min(360px, 90vw); transform: translateX(0) }
+.pendentive-drawer-top { top: 0; left: 0; right: 0; height: min(320px, 80vh); transform: translateY(0) }
+.pendentive-drawer-bottom { bottom: 0; left: 0; right: 0; height: min(320px, 80vh); transform: translateY(0) }
+.pendentive-drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--pendentive-border) }
+.pendentive-drawer-title { font-size: 14px; font-weight: 600 }
+.pendentive-drawer-close { background: transparent; border: none; color: var(--pendentive-muted-foreground); cursor: pointer; display: flex; padding: 4px; border-radius: var(--pendentive-radius-sm) }
+.pendentive-drawer-body { padding: 16px; overflow-y: auto; flex: 1 }
 `
 
 /** Creates a slide-in panel anchored to a screen edge, ideal for side navigation or contextual forms. */

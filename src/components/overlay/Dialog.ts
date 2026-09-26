@@ -46,14 +46,14 @@ export type DialogElement = HTMLDivElement & DialogApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const dialogCss = `
-.linteau-dialog-overlay { position: fixed; inset: 0; background: color-mix(in oklch, black 60%, transparent); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px) }
-.linteau-dialog-panel { width: min(480px, 92vw); max-height: 86vh; display: flex; flex-direction: column; background: var(--linteau-card); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); overflow: hidden }
-.linteau-dialog-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--linteau-border) }
-.linteau-dialog-title { font-size: 14px; font-weight: 600 }
-.linteau-dialog-close { background: transparent; border: none; color: var(--linteau-muted-foreground); cursor: pointer; display: flex; padding: 4px; border-radius: var(--linteau-radius-sm) }
-.linteau-dialog-close:hover { background: var(--linteau-accent); color: var(--linteau-foreground) }
-.linteau-dialog-body { padding: 16px; overflow-y: auto }
-.linteau-dialog-footer { display: flex; justify-content: flex-end; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--linteau-border) }
+.pendentive-dialog-overlay { position: fixed; inset: 0; background: color-mix(in oklch, black 60%, transparent); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px) }
+.pendentive-dialog-panel { width: min(480px, 92vw); max-height: 86vh; display: flex; flex-direction: column; background: var(--pendentive-card); border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-lg); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); overflow: hidden }
+.pendentive-dialog-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--pendentive-border) }
+.pendentive-dialog-title { font-size: 14px; font-weight: 600 }
+.pendentive-dialog-close { background: transparent; border: none; color: var(--pendentive-muted-foreground); cursor: pointer; display: flex; padding: 4px; border-radius: var(--pendentive-radius-sm) }
+.pendentive-dialog-close:hover { background: var(--pendentive-accent); color: var(--pendentive-foreground) }
+.pendentive-dialog-body { padding: 16px; overflow-y: auto }
+.pendentive-dialog-footer { display: flex; justify-content: flex-end; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--pendentive-border) }
 `
 
 /** Creates a centered modal dialog with a backdrop, focus-safe scroll lock, and Escape-to-close. */

@@ -72,33 +72,33 @@ export interface DatePickerApi {
 /** A `DatePicker` is a real `HTMLDivElement` (the field wrapper) extended with `DatePickerApi`. */
 export type DatePickerElement = HTMLDivElement & DatePickerApi
 
-/** This component's own CSS -- the calendar popover, weekday header, range highlighting, and footer actions. Depends on `.linteau-combobox` (registered via the imported `comboboxCss`). */
+/** This component's own CSS -- the calendar popover, weekday header, range highlighting, and footer actions. Depends on `.pendentive-combobox` (registered via the imported `comboboxCss`). */
 export const calendarCss = `
-.linteau-calendar { position: fixed; z-index: 1200; width: 280px; background: var(--linteau-card); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg); padding: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) }
-.linteau-calendar-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px }
-.linteau-calendar-nav { background: transparent; border: none; color: var(--linteau-foreground); cursor: pointer; display: flex; padding: 4px; border-radius: var(--linteau-radius-sm) }
-.linteau-calendar-nav:hover:not(:disabled) { background: var(--linteau-accent) }
-.linteau-calendar-nav:disabled { opacity: 0.35; cursor: not-allowed }
-.linteau-calendar-month { font-size: 12px; font-weight: 600 }
-.linteau-calendar-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-bottom: 2px }
-.linteau-calendar-weekday { height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: var(--linteau-muted-foreground); text-transform: uppercase }
-.linteau-calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px }
-.linteau-calendar-day { height: 28px; display: flex; align-items: center; justify-content: center; font-size: 11px; border-radius: var(--linteau-radius-sm); background: transparent; border: none; color: var(--linteau-foreground); cursor: pointer; font-family: inherit }
-.linteau-calendar-day:hover:not(:disabled) { background: var(--linteau-accent) }
-.linteau-calendar-day:disabled { opacity: 0.35; cursor: not-allowed }
-.linteau-calendar-day:focus-visible { outline: 2px solid var(--linteau-ring); outline-offset: 1px }
-.linteau-calendar-day-outside { opacity: 0.35 }
-.linteau-calendar-day-selected { background: var(--linteau-primary); color: var(--linteau-primary-foreground) }
-.linteau-calendar-day-today:not(.linteau-calendar-day-selected) { box-shadow: inset 0 0 0 1px var(--linteau-ring) }
-.linteau-calendar-day-in-range { background: var(--linteau-accent); border-radius: 0 }
-.linteau-calendar-day-range-start { background: var(--linteau-primary); color: var(--linteau-primary-foreground); border-radius: var(--linteau-radius-sm) 0 0 var(--linteau-radius-sm) }
-.linteau-calendar-day-range-end { background: var(--linteau-primary); color: var(--linteau-primary-foreground); border-radius: 0 var(--linteau-radius-sm) var(--linteau-radius-sm) 0 }
-.linteau-calendar-footer { display: flex; gap: 6px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--linteau-border) }
-.linteau-calendar-footer-button { flex: 1; padding: 6px 8px; font-size: 11px; border-radius: var(--linteau-radius-sm); border: 1px solid var(--linteau-border); background: transparent; color: var(--linteau-foreground); cursor: pointer; font-family: inherit }
-.linteau-calendar-footer-button:hover { background: var(--linteau-accent) }
-.linteau-combobox-input-clearable { padding-right: 46px }
-.linteau-combobox-clear { position: absolute; right: 26px; color: var(--linteau-muted-foreground); background: transparent; border: none; cursor: pointer; display: flex; padding: 2px }
-.linteau-combobox-clear:hover { color: var(--linteau-foreground) }
+.pendentive-calendar { position: fixed; z-index: 1200; width: 280px; background: var(--pendentive-card); border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-lg); padding: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) }
+.pendentive-calendar-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px }
+.pendentive-calendar-nav { background: transparent; border: none; color: var(--pendentive-foreground); cursor: pointer; display: flex; padding: 4px; border-radius: var(--pendentive-radius-sm) }
+.pendentive-calendar-nav:hover:not(:disabled) { background: var(--pendentive-accent) }
+.pendentive-calendar-nav:disabled { opacity: 0.35; cursor: not-allowed }
+.pendentive-calendar-month { font-size: 12px; font-weight: 600 }
+.pendentive-calendar-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-bottom: 2px }
+.pendentive-calendar-weekday { height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: var(--pendentive-muted-foreground); text-transform: uppercase }
+.pendentive-calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px }
+.pendentive-calendar-day { height: 28px; display: flex; align-items: center; justify-content: center; font-size: 11px; border-radius: var(--pendentive-radius-sm); background: transparent; border: none; color: var(--pendentive-foreground); cursor: pointer; font-family: inherit }
+.pendentive-calendar-day:hover:not(:disabled) { background: var(--pendentive-accent) }
+.pendentive-calendar-day:disabled { opacity: 0.35; cursor: not-allowed }
+.pendentive-calendar-day:focus-visible { outline: 2px solid var(--pendentive-ring); outline-offset: 1px }
+.pendentive-calendar-day-outside { opacity: 0.35 }
+.pendentive-calendar-day-selected { background: var(--pendentive-primary); color: var(--pendentive-primary-foreground) }
+.pendentive-calendar-day-today:not(.pendentive-calendar-day-selected) { box-shadow: inset 0 0 0 1px var(--pendentive-ring) }
+.pendentive-calendar-day-in-range { background: var(--pendentive-accent); border-radius: 0 }
+.pendentive-calendar-day-range-start { background: var(--pendentive-primary); color: var(--pendentive-primary-foreground); border-radius: var(--pendentive-radius-sm) 0 0 var(--pendentive-radius-sm) }
+.pendentive-calendar-day-range-end { background: var(--pendentive-primary); color: var(--pendentive-primary-foreground); border-radius: 0 var(--pendentive-radius-sm) var(--pendentive-radius-sm) 0 }
+.pendentive-calendar-footer { display: flex; gap: 6px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--pendentive-border) }
+.pendentive-calendar-footer-button { flex: 1; padding: 6px 8px; font-size: 11px; border-radius: var(--pendentive-radius-sm); border: 1px solid var(--pendentive-border); background: transparent; color: var(--pendentive-foreground); cursor: pointer; font-family: inherit }
+.pendentive-calendar-footer-button:hover { background: var(--pendentive-accent) }
+.pendentive-combobox-input-clearable { padding-right: 46px }
+.pendentive-combobox-clear { position: absolute; right: 26px; color: var(--pendentive-muted-foreground); background: transparent; border: none; cursor: pointer; display: flex; padding: 2px }
+.pendentive-combobox-clear:hover { color: var(--pendentive-foreground) }
 `
 
 function isSameDay(a: Date, b: Date): boolean {

@@ -51,12 +51,12 @@ export type ComboboxElement = HTMLDivElement & ComboboxApi
 
 /** This component's own CSS. Reused by `DatePicker` under the same `combobox` key, so it's only ever injected once. */
 export const comboboxCss = `
-.linteau-combobox { position: relative; display: flex; align-items: center }
-.linteau-combobox-input { padding-right: 28px }
-.linteau-combobox-chevron { position: absolute; right: 8px; pointer-events: none; color: var(--linteau-muted-foreground) }
-.linteau-combobox-list { position: fixed; z-index: 1200; min-width: 180px; max-height: 220px; overflow-y: auto; background: var(--linteau-card); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-md); padding: 4px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) }
-.linteau-combobox-option { padding: 6px 8px; border-radius: var(--linteau-radius-sm); font-size: 12px; cursor: pointer; color: var(--linteau-foreground) }
-.linteau-combobox-option-highlighted, .linteau-combobox-option:hover { background: var(--linteau-accent) }
+.pendentive-combobox { position: relative; display: flex; align-items: center }
+.pendentive-combobox-input { padding-right: 28px }
+.pendentive-combobox-chevron { position: absolute; right: 8px; pointer-events: none; color: var(--pendentive-muted-foreground) }
+.pendentive-combobox-list { position: fixed; z-index: 1200; min-width: 180px; max-height: 220px; overflow-y: auto; background: var(--pendentive-card); border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-md); padding: 4px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) }
+.pendentive-combobox-option { padding: 6px 8px; border-radius: var(--pendentive-radius-sm); font-size: 12px; cursor: pointer; color: var(--pendentive-foreground) }
+.pendentive-combobox-option-highlighted, .pendentive-combobox-option:hover { background: var(--pendentive-accent) }
 `
 
 /** Creates a filterable, type-to-search select -- a text input backed by a live-filtered dropdown of options. */

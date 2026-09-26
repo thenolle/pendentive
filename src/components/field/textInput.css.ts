@@ -3,22 +3,22 @@
  * text inputs inside Combobox/DatePicker). Registered under the `text-input` key.
  */
 export const textInputCss = `
-.linteau-text-input, .linteau-textarea {
+.pendentive-text-input, .pendentive-textarea {
   width: 100%;
-  background: var(--linteau-secondary);
-  color: var(--linteau-foreground);
-  border: 1px solid var(--linteau-border);
-  border-radius: var(--linteau-radius-sm);
+  background: var(--pendentive-secondary);
+  color: var(--pendentive-foreground);
+  border: 1px solid var(--pendentive-border);
+  border-radius: var(--pendentive-radius-sm);
   padding: 8px 10px;
   font-size: 12px;
   font-family: inherit;
   transition: border-color 120ms ease;
 }
-.linteau-text-input:focus, .linteau-textarea:focus {
+.pendentive-text-input:focus, .pendentive-textarea:focus {
   outline: none;
-  border-color: var(--linteau-ring);
-  box-shadow: 0 0 0 2px color-mix(in oklch, var(--linteau-ring) 20%, transparent);
+  border-color: var(--pendentive-ring);
+  box-shadow: 0 0 0 2px color-mix(in oklch, var(--pendentive-ring) 20%, transparent);
 }
-.linteau-text-input:disabled, .linteau-textarea:disabled { opacity: 0.5; cursor: not-allowed }
-.linteau-textarea { resize: vertical; min-height: 72px }
+.pendentive-text-input:disabled, .pendentive-textarea:disabled { opacity: 0.5; cursor: not-allowed }
+.pendentive-textarea { resize: vertical; min-height: 72px }
 `

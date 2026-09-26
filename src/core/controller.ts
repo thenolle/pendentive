@@ -39,7 +39,7 @@ export function createEmitter<TEvents extends Record<string, unknown>>(): Emitte
  * a single value that IS a valid Node (append it anywhere) AND a fully
  * controllable component instance (no wrapper object required).
  *
- * This is the pattern every Linteau component factory returns through.
+ * This is the pattern every Pendentive component factory returns through.
  *
  * @typeParam TElement - The native element type being extended, e.g. `HTMLButtonElement`.
  * @typeParam TApi - The extra methods/properties to attach.

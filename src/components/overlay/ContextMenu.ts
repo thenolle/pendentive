@@ -23,7 +23,7 @@ export interface ContextMenuOptions {
  */
 export type ContextMenuApi = Destroyable
 
-/** Replaces the native right-click menu on `target` with a styled `ContextMenu`. Shares `.linteau-menu` CSS with `DropdownMenu` -- the `menu` key dedupes. */
+/** Replaces the native right-click menu on `target` with a styled `ContextMenu`. Shares `.pendentive-menu` CSS with `DropdownMenu` -- the `menu` key dedupes. */
 export function ContextMenu(options: ContextMenuOptions): ContextMenuApi {
   assertDom('ContextMenu')
   ensureComponentStyles('menu', menuCss)

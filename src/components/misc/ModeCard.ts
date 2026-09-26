@@ -41,13 +41,13 @@ export type ModeCardElement = HTMLButtonElement & ModeCardApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const modeCardCss = `
-.linteau-mode-card { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px; background: var(--linteau-card); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-lg); color: var(--linteau-foreground); cursor: pointer; text-align: left; font-family: inherit; transition: border-color 120ms ease, transform 120ms ease }
-.linteau-mode-card:hover:not(.linteau-locked) { border-color: var(--linteau-ring); transform: translateY(-2px) }
-.linteau-mode-card.linteau-selected { border-color: var(--linteau-primary); box-shadow: 0 0 0 1px var(--linteau-primary) }
-.linteau-mode-card.linteau-locked { opacity: 0.45; cursor: not-allowed }
-.linteau-mode-card-icon { color: var(--linteau-foreground) }
-.linteau-mode-card-title { font-weight: 600; font-size: 13px }
-.linteau-mode-card-description { font-size: 11px; color: var(--linteau-muted-foreground) }
+.pendentive-mode-card { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px; background: var(--pendentive-card); border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-lg); color: var(--pendentive-foreground); cursor: pointer; text-align: left; font-family: inherit; transition: border-color 120ms ease, transform 120ms ease }
+.pendentive-mode-card:hover:not(.pendentive-locked) { border-color: var(--pendentive-ring); transform: translateY(-2px) }
+.pendentive-mode-card.pendentive-selected { border-color: var(--pendentive-primary); box-shadow: 0 0 0 1px var(--pendentive-primary) }
+.pendentive-mode-card.pendentive-locked { opacity: 0.45; cursor: not-allowed }
+.pendentive-mode-card-icon { color: var(--pendentive-foreground) }
+.pendentive-mode-card-title { font-weight: 600; font-size: 13px }
+.pendentive-mode-card-description { font-size: 11px; color: var(--pendentive-muted-foreground) }
 `
 
 /** Creates a selectable, optionally lockable option card -- typically used in mode/menu pickers. */

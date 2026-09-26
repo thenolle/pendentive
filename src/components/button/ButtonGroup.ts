@@ -40,13 +40,13 @@ export interface ButtonGroupApi {
 /** A `ButtonGroup` is a real `HTMLDivElement` extended with `ButtonGroupApi`. */
 export type ButtonGroupElement = HTMLDivElement & ButtonGroupApi
 
-/** This component's own CSS. Depends on `.linteau-button`, which `Button()` registers itself the moment `ButtonGroup` renders its first segment. */
+/** This component's own CSS. Depends on `.pendentive-button`, which `Button()` registers itself the moment `ButtonGroup` renders its first segment. */
 export const buttonGroupCss = `
-.linteau-button-group { display: inline-flex; border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-sm); overflow: hidden }
-.linteau-button-group .linteau-button { border-radius: 0; border: none; border-right: 1px solid var(--linteau-border); background: transparent; color: var(--linteau-muted-foreground) }
-.linteau-button-group .linteau-button:last-child { border-right: none }
-.linteau-button-group .linteau-button:hover:not(:disabled) { background: var(--linteau-accent) }
-.linteau-button-group .linteau-button-group-item-active { background: var(--linteau-primary); color: var(--linteau-primary-foreground) }
+.pendentive-button-group { display: inline-flex; border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-sm); overflow: hidden }
+.pendentive-button-group .pendentive-button { border-radius: 0; border: none; border-right: 1px solid var(--pendentive-border); background: transparent; color: var(--pendentive-muted-foreground) }
+.pendentive-button-group .pendentive-button:last-child { border-right: none }
+.pendentive-button-group .pendentive-button:hover:not(:disabled) { background: var(--pendentive-accent) }
+.pendentive-button-group .pendentive-button-group-item-active { background: var(--pendentive-primary); color: var(--pendentive-primary-foreground) }
 `
 
 /** Creates a segmented, single-select group of buttons -- useful for compact mode/tab-like pickers that don't need a full `Select`. */

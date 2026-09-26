@@ -56,11 +56,11 @@ export type SelectElement = HTMLDivElement & SelectApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const selectCss = `
-.linteau-select-wrap { position: relative }
-.linteau-select { appearance: none; background: var(--linteau-secondary); color: var(--linteau-foreground); border: 1px solid var(--linteau-border); border-radius: var(--linteau-radius-sm); padding: 6px 28px 6px 10px; font-size: 12px; font-family: inherit; cursor: pointer; transition: border-color 120ms ease }
-.linteau-select:disabled { opacity: 0.5; cursor: not-allowed }
-.linteau-select:focus { outline: none; border-color: var(--linteau-ring); box-shadow: 0 0 0 2px color-mix(in oklch, var(--linteau-ring) 20%, transparent) }
-.linteau-select-chevron { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); pointer-events: none }
+.pendentive-select-wrap { position: relative }
+.pendentive-select { appearance: none; background: var(--pendentive-secondary); color: var(--pendentive-foreground); border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-sm); padding: 6px 28px 6px 10px; font-size: 12px; font-family: inherit; cursor: pointer; transition: border-color 120ms ease }
+.pendentive-select:disabled { opacity: 0.5; cursor: not-allowed }
+.pendentive-select:focus { outline: none; border-color: var(--pendentive-ring); box-shadow: 0 0 0 2px color-mix(in oklch, var(--pendentive-ring) 20%, transparent) }
+.pendentive-select-chevron { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); pointer-events: none }
 `
 
 /** Creates a labeled native select dropdown, restyled to match the design system. */

@@ -47,11 +47,11 @@ export type SliderElement = HTMLDivElement & SliderApi
 
 /** This component's own CSS, colocated and self-injected on first use. */
 export const sliderCss = `
-.linteau-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px; background: linear-gradient(to right, var(--linteau-primary) 0%, var(--linteau-primary) var(--linteau-fill, 0%), var(--linteau-secondary) var(--linteau-fill, 0%), var(--linteau-secondary) 100%); outline: none; transition: background 120ms ease }
-.linteau-slider:disabled { opacity: 0.5 }
-.linteau-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--linteau-primary); border: 2px solid var(--linteau-card); box-shadow: 0 0 0 1px var(--linteau-border); cursor: pointer; transition: transform 120ms ease }
-.linteau-slider::-webkit-slider-thumb:hover { transform: scale(1.15) }
-.linteau-slider::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--linteau-primary); border: 2px solid var(--linteau-card); cursor: pointer }
+.pendentive-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px; background: linear-gradient(to right, var(--pendentive-primary) 0%, var(--pendentive-primary) var(--pendentive-fill, 0%), var(--pendentive-secondary) var(--pendentive-fill, 0%), var(--pendentive-secondary) 100%); outline: none; transition: background 120ms ease }
+.pendentive-slider:disabled { opacity: 0.5 }
+.pendentive-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--pendentive-primary); border: 2px solid var(--pendentive-card); box-shadow: 0 0 0 1px var(--pendentive-border); cursor: pointer; transition: transform 120ms ease }
+.pendentive-slider::-webkit-slider-thumb:hover { transform: scale(1.15) }
+.pendentive-slider::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--pendentive-primary); border: 2px solid var(--pendentive-card); cursor: pointer }
 `
 
 /** Creates a labeled range slider with a live value readout, supporting controlled and uncontrolled usage. */
@@ -82,7 +82,7 @@ export function Slider(options: SliderOptions): SliderElement {
   input.disabled = options.disabled ?? false
   function updateFill(v: number): void {
     const percent = ((v - min) / (max - min)) * 100
-    input.style.setProperty('--linteau-fill', `${percent}%`)
+    input.style.setProperty('--pendentive-fill', `${percent}%`)
   }
   updateFill(value)
   const listener = (): void => {
