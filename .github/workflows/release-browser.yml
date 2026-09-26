@@ -2,7 +2,7 @@ name: Release browser build
 
 on:
   push:
-    branches: [master[
+    branches: [master]
     paths:
       - package.json
   workflow_dispatch:
