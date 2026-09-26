@@ -1,6 +1,6 @@
 {
   "name": "pendentive",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A self-sufficient, dependency-free UI component library for the browser, Node, and Bun.",
   "type": "module",
   "license": "WTFPL",
@@ -49,6 +49,7 @@
     "LICENSE",
     "README.md"
   ],
+  "homepage": "https://thenolle.github.io/pendentive",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thenolle/pendentive.git"
