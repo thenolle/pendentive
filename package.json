@@ -1,6 +1,6 @@
 {
   "name": "pendentive",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A self-sufficient, dependency-free UI component library for the browser, Node, and Bun.",
   "type": "module",
   "license": "WTFPL",
