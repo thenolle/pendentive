@@ -1,0 +1,58 @@
+{
+  "name": "socle",
+  "version": "0.1.1",
+  "description": "A self-sufficient, dependency-free UI component library for the browser, Node, and Bun.",
+  "type": "module",
+  "license": "WTFPL",
+  "author": "Nolly",
+  "keywords": ["ui", "components", "design-system", "vanilla", "typescript", "svg-icons"],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18",
+    "bun": ">=1.0"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "unpkg": "./dist/socle.global.js",
+  "jsdelivr": "./dist/socle.global.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./svg": {
+      "types": "./dist/svg/index.d.ts",
+      "import": "./dist/svg/index.js",
+      "require": "./dist/svg/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist", "LICENSE", "README.md"],
+  "scripts": {
+    "generate:icons": "bun run scripts/generate-icons.ts",
+    "generate:index": "bun run scripts/generate-index.ts",
+    "generate": "bun run generate:icons && bun run generate:index",
+    "prebuild": "bun run generate",
+    "build": "bun run clean && bun run build:lib && bun run build:types && bun run build:browser",
+    "build:lib": "tsup",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist",
+    "build:browser": "node scripts/browser.ts",
+    "preserve": "bun run generate",
+    "serve": "bun run scripts/serve.ts",
+    "pretypecheck": "bun run generate",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "version:patch": "bun run scripts/sync-version.ts patch",
+    "version:minor": "bun run scripts/sync-version.ts minor",
+    "version:major": "bun run scripts/sync-version.ts major",
+    "version:sync": "bun run scripts/sync-version.ts --sync"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.2",
+    "esbuild": "^0.28.2",
+    "tsup": "^8.5.1",
+    "typescript": "^7.0.2"
+  }
+}

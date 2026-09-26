@@ -1,0 +1,5 @@
+src
+.github
+tsconfig.json
+.gitignore
+node_modules

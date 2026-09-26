@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover' />
+  <meta name='description' content='Socle -- a zero-dependency, browser/Node/Bun UI component library. Real DOM elements with attached controller methods, no framework required.' />
+  <meta name='theme-color' content='#0e0e0e' />
+  <meta name='color-scheme' content='dark light' />
+  <title>Socle -- UI component library</title>
+  <link rel='icon' type='image/svg+xml' href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%22-.1em%22 y=%22.9em%22 font-size=%2290%22>📦</text></svg>' />
+  <style>
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+      background: var(--socle-background, #171717);
+      color: var(--socle-foreground, #f0f0f0);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--socle-ring, #888);
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    #app-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px max(20px, env(safe-area-inset-left)) 12px max(20px, env(safe-area-inset-left));
+      border-bottom: 1px solid var(--socle-border);
+      background: var(--socle-card);
+      flex-wrap: wrap;
+    }
+
+    #app-header h1 {
+      font-size: 15px;
+      margin: 0;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .mobile-menu-button {
+      display: none;
+    }
+
+    #app-layout {
+      display: flex;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+
+    #app-nav {
+      width: 260px;
+      flex-shrink: 0;
+      padding: 16px;
+      overflow-y: auto;
+      border-right: 1px solid var(--socle-border);
+      max-height: 100vh;
+      max-height: 100dvh;
+      position: sticky;
+      top: 0;
+    }
+
+    .nav-search {
+      margin-bottom: 12px;
+    }
+
+    .nav-item-hidden {
+      display: none !important;
+    }
+
+    #app-main {
+      flex: 1;
+      min-width: 0;
+      padding: 24px max(24px, env(safe-area-inset-right)) 48px max(24px, env(safe-area-inset-left));
+      max-width: 860px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .category-heading {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--socle-muted-foreground);
+      margin-top: 8px;
+    }
+
+    .spacer {
+      flex: 1;
+    }
+
+    .demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .demo-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .demo-note {
+      font-size: 13px;
+      color: var(--socle-muted-foreground);
+      margin: 0 0 6px;
+    }
+
+    .swatch-preview {
+      width: 100%;
+      height: 32px;
+      border-radius: var(--socle-radius-sm);
+      border: 1px solid var(--socle-border);
+    }
+
+    .ctx-zone {
+      border: 1px dashed var(--socle-border);
+      border-radius: var(--socle-radius-md);
+      padding: 24px;
+      text-align: center;
+      color: var(--socle-muted-foreground);
+      font-size: 12px;
+    }
+
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+      gap: 8px;
+    }
+
+    .icon-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 4px;
+      border: 1px solid var(--socle-border);
+      border-radius: var(--socle-radius-md);
+      font-size: 10px;
+      color: var(--socle-muted-foreground);
+      word-break: break-word;
+      text-align: center;
+    }
+
+    .code-wrap {
+      position: relative;
+      max-width: 100%;
+    }
+
+    .code-wrap pre {
+      margin: 0;
+      padding: 12px;
+      padding-right: 44px;
+      background: var(--socle-background);
+      border: 1px solid var(--socle-border);
+      border-radius: var(--socle-radius-md);
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 11.5px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: pre;
+      max-width: 100%;
+    }
+
+    .code-copy-button {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      padding: 6px !important;
+    }
+
+    /* Tablet */
+    @media (max-width: 900px) {
+      #app-nav {
+        display: none;
+      }
+
+      #app-main {
+        max-width: 100%;
+      }
+
+      .mobile-menu-button {
+        display: inline-flex;
+      }
+    }
+
+    /* Phone */
+    @media (max-width: 480px) {
+      #app-header {
+        padding: 10px max(14px, env(safe-area-inset-left));
+      }
+
+      #app-main {
+        padding: 16px max(14px, env(safe-area-inset-right)) 40px max(14px, env(safe-area-inset-left));
+        gap: 16px;
+      }
+
+      .header-optional {
+        display: none;
+      }
+
+      .code-wrap pre {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id='app'></div>
+  <script src='./dist/socle.global.js'></script>
+  <script>
+    const { Button, ButtonGroup, Section, Card, Separator, TextField, TextArea, NumberField, ColorField, Checkbox, RadioGroup, Switch, Slider, RangeSlider, Select, Combobox, ChipInput, FileDropzone, DatePicker, Badge, Avatar, ModeCard, Spinner, ProgressBar, Skeleton, toast, Alert, Tooltip, Dialog, Drawer, Popover, DropdownMenu, ContextMenu, Tabs, Accordion, Breadcrumb, Pagination, Table, List, Tree, Icon, icons, setTheme, resetTheme, getTheme } = Socle
+
+    /**
+     * Renders `text` as a scrollable code block with a copy-to-clipboard button.
+     * Demonstrates `Button.setIcon` -- a real, documented API -- by swapping the
+     * copy icon for a checkmark briefly after a successful copy.
+     */
+    function code(text) {
+      const trimmed = text.trim()
+      const wrap = document.createElement('div')
+      wrap.className = 'code-wrap'
+      const pre = document.createElement('pre')
+      pre.textContent = trimmed
+      const copyButton = Button('', { variant: 'ghost', size: 'sm', icon: icons.copy })
+      copyButton.className += ' code-copy-button'
+      copyButton.setAttribute('aria-label', 'Copy code to clipboard')
+      copyButton.addEventListener('click', () => {
+        navigator.clipboard?.writeText(trimmed).catch(() => { })
+        copyButton.setIcon(icons.check)
+        setTimeout(() => copyButton.setIcon(icons.copy), 1200)
+      })
+      wrap.append(pre, copyButton)
+      return wrap
+    }
+
+    function docEntry({ id, title, icon, description, render, source }) {
+      const section = Section(title, { icon })
+      section.id = id
+      const desc = document.createElement('p')
+      desc.className = 'demo-note'
+      desc.textContent = description
+      const preview = document.createElement('div')
+      preview.className = 'demo-col'
+      render(preview)
+      const tabs = Tabs({ items: [{ label: 'Preview', value: 'preview', content: preview }, { label: 'Code', value: 'code', content: code(source) }], defaultValue: 'preview' })
+      section.body.append(desc, tabs)
+      return section
+    }
+
+    const header = document.createElement('header')
+    header.id = 'app-header'
+    const title = document.createElement('h1')
+    title.textContent = 'Socle'
+    const versionBadge = Badge('v0.1.1', { variant: 'outline' })
+    versionBadge.className += ' header-optional'
+    const spacer = document.createElement('div')
+    spacer.className = 'spacer'
+    const accentSwitch = Switch({
+      label: 'Pale Pink accent',
+      icon: icons.sun,
+      defaultChecked: false,
+      onChange: (checked) => {
+        if (checked) setTheme({ primary: 'oklch(0.7 0.08 350)', primaryForeground: 'oklch(0.98 0 0)', ring: 'oklch(0.7 0.08 350)' })
+        else resetTheme()
+      }
+    })
+    accentSwitch.className += ' header-optional'
+    const githubButton = Button('GitHub', {
+      variant: 'outline',
+      size: 'sm',
+      icon: icons.externalLink,
+      iconPosition: 'end',
+      onClick: () => window.open('https://github.com/thenolle/socle', '_blank')
+    })
+    githubButton.className += ' header-optional'
+    const menuButton = Button('', { variant: 'ghost', size: 'sm', icon: icons.menu })
+    menuButton.className += ' mobile-menu-button'
+    menuButton.setAttribute('aria-label', 'Open navigation')
+    header.append(menuButton, title, versionBadge, spacer, accentSwitch, githubButton)
+
+    const categories = [
+      {
+        id: 'cat-buttons',
+        title: 'Buttons',
+        items: [
+          {
+            id: 'doc-button',
+            title: 'Button',
+            icon: icons.check,
+            description: 'A fully controllable button with variants, sizes, icons, and a live-updatable API.',
+            render(container) {
+              const row = document.createElement('div')
+              row.className = 'demo-row'
+              row.append(
+                Button('Default'),
+                Button('Outline', { variant: 'outline' }),
+                Button('Ghost', { variant: 'ghost' }),
+                Button('Destructive', { variant: 'destructive', icon: icons.trash }),
+                Button('Small', { size: 'sm' })
+              )
+              container.append(row)
+            },
+            source: `
+import { Button } from 'socle'
+
+const button = Button('Save', {
+  variant: 'default',
+  icon: icons.check,
+  onClick: () => console.log('saved')
+})
+document.body.append(button)
+
+button.setLabel('Saved!')
+button.setVariant('outline')
+`
+          },
+          {
+            id: 'doc-button-group',
+            title: 'ButtonGroup',
+            icon: icons.moreHorizontal,
+            description: 'A segmented, single-select group of buttons for compact mode pickers.',
+            render(container) {
+              const label = document.createElement('div')
+              const group = ButtonGroup({
+                items: [
+                  { label: 'List', value: 'list' },
+                  { label: 'Grid', value: 'grid' },
+                  { label: 'Table', value: 'table' }
+                ],
+                value: 'list',
+                onChange: (value) => { label.textContent = `Selected: ${value}` }
+              })
+              label.textContent = 'Selected: list'
+              container.append(group, label)
+            },
+            source: `
+const group = ButtonGroup({
+  items: [
+    { label: 'List', value: 'list' },
+    { label: 'Grid', value: 'grid' }
+  ],
+  value: 'list',
+  onChange: (value) => console.log(value)
+})
+`
+          }
+        ]
+      },
+      {
+        id: 'cat-layout',
+        title: 'Layout',
+        items: [
+          {
+            id: 'doc-section',
+            title: 'Section',
+            icon: icons.circle,
+            description: 'A titled, bordered container -- optionally collapsible. This very page is built from it.',
+            render(container) {
+              const nested = Section('Collapsible example', { collapsible: true, defaultCollapsed: false })
+              const p = document.createElement('p')
+              p.textContent = 'Click the header to collapse this section.'
+              nested.body.appendChild(p)
+              container.append(nested)
+            },
+            source: `
+const section = Section('Settings', { collapsible: true })
+section.body.append(mySlider, mySwitch)
+document.body.append(section)
+`
+          },
+          {
+            id: 'doc-card',
+            title: 'Card',
+            icon: icons.circle,
+            description: 'A bordered surface with optional header/footer slots.',
+            render(container) {
+              const card = Card({ header: 'Card header', footer: 'Card footer' })
+              card.body.textContent = 'Card body content goes here.'
+              container.append(card)
+            },
+            source: `
+const card = Card({ header: 'Profile', footer: 'Last updated today' })
+card.body.append(myAvatar, myTextField)
+`
+          },
+          {
+            id: 'doc-separator',
+            title: 'Separator',
+            icon: icons.minus,
+            description: 'A thin dividing line, horizontal or vertical.',
+            render(container) {
+              const row = document.createElement('div')
+              row.style.cssText = 'display:flex;align-items:center;gap:12px;height:40px;'
+              row.append(document.createTextNode('Left'), Separator({ orientation: 'vertical' }), document.createTextNode('Right'))
+              container.append(row, Separator())
+            },
+            source: `
+const divider = Separator({ orientation: 'horizontal' })
+`
+          }
+        ]
+      },
+      {
+        id: 'cat-fields',
+        title: 'Form Fields',
+        items: [
+          {
+            id: 'doc-textfield',
+            title: 'TextField',
+            icon: icons.search,
+            description: 'A labeled single-line text input, controlled or uncontrolled. Supports native types like email, tel, and url.',
+            render(container) {
+              const output = Badge('Type something...', { variant: 'outline' })
+              const field = TextField({
+                label: 'Full name',
+                icon: icons.user,
+                placeholder: 'Ada Lovelace',
+                onChange: (value) => output.setLabel(value || 'Type something...')
+              })
+              container.append(field, output)
+            },
+            source: `
+const field = TextField({
+  label: 'Full name',
+  icon: icons.user,
+  placeholder: 'Ada Lovelace',
+  onChange: (value) => console.log(value)
+})
+`
+          },
+          {
+            id: 'doc-textarea',
+            title: 'TextArea',
+            icon: icons.search,
+            description: 'A labeled multi-line text input.',
+            render(container) {
+              container.append(TextArea({ label: 'Description', placeholder: 'Write a few sentences...', rows: 3 }))
+            },
+            source: `
+const area = TextArea({ label: 'Description', rows: 4 })
+`
+          },
+          {
+            id: 'doc-numberfield',
+            title: 'NumberField',
+            icon: icons.plus,
+            description: 'A labeled numeric input with optional min/max/step.',
+            render(container) {
+              container.append(NumberField({ label: 'Quantity', min: 0, max: 10, defaultValue: 1 }))
+            },
+            source: `
+const qty = NumberField({ label: 'Quantity', min: 0, max: 10, defaultValue: 1 })
+`
+          },
+          {
+            id: 'doc-colorfield',
+            title: 'ColorField',
+            icon: icons.circle,
+            description: 'A labeled native color-picker swatch.',
+            render(container) {
+              const preview = document.createElement('div')
+              preview.className = 'swatch-preview'
+              preview.style.background = '#7dd3fc'
+              const field = ColorField({
+                label: 'Accent color',
+                defaultValue: '#7dd3fc',
+                onChange: (value) => { preview.style.background = value }
+              })
+              container.append(field, preview)
+            },
+            source: `
+const colorField = ColorField({
+  label: 'Accent color',
+  defaultValue: '#7dd3fc',
+  onChange: (value) => console.log(value)
+})
+`
+          }
+        ]
+      },
+      {
+        id: 'cat-selection',
+        title: 'Selection Controls',
+        items: [
+          {
+            id: 'doc-checkbox',
+            title: 'Checkbox',
+            icon: icons.check,
+            description: 'A labeled checkbox supporting checked/indeterminate states.',
+            render(container) {
+              container.append(Checkbox({ label: 'Accept terms', defaultChecked: false }))
+            },
+            source: `
+const checkbox = Checkbox({ label: 'Accept terms', onChange: (checked) => console.log(checked) })
+`
+          },
+          {
+            id: 'doc-radiogroup',
+            title: 'RadioGroup',
+            icon: icons.circle,
+            description: 'A single-select group of radio rows.',
+            render(container) {
+              container.append(RadioGroup({
+                items: [{ label: 'Small', value: 'sm' }, { label: 'Medium', value: 'md' }, { label: 'Large', value: 'lg' }],
+                defaultValue: 'md'
+              }))
+            },
+            source: `
+const radios = RadioGroup({
+  items: [{ label: 'Small', value: 'sm' }, { label: 'Large', value: 'lg' }],
+  defaultValue: 'sm'
+})
+`
+          },
+          {
+            id: 'doc-switch',
+            title: 'Switch',
+            icon: icons.bell,
+            description: 'A labeled on/off toggle.',
+            render(container) {
+              container.append(Switch({ label: 'Enable notifications', icon: icons.bell, defaultChecked: true }))
+            },
+            source: `
+const toggle = Switch({ label: 'Enable notifications', defaultChecked: true })
+`
+          },
+          {
+            id: 'doc-slider',
+            title: 'Slider',
+            icon: icons.minus,
+            description: 'A labeled range slider with a live value readout.',
+            render(container) {
+              container.append(Slider({ label: 'Volume', min: 0, max: 100, step: 1, defaultValue: 40, format: (v) => `${v}%` }))
+            },
+            source: `
+const volume = Slider({ label: 'Volume', min: 0, max: 100, step: 1, defaultValue: 40, format: (v) => \`\${v}%\` })
+`
+          },
+          {
+            id: 'doc-rangeslider',
+            title: 'RangeSlider',
+            icon: icons.minus,
+            description: 'A labeled dual-thumb range slider.',
+            render(container) {
+              container.append(RangeSlider({ label: 'Price range', min: 0, max: 1000, step: 10, defaultValue: [200, 700], format: (v) => `$${v}` }))
+            },
+            source: `
+const priceRange = RangeSlider({ label: 'Price range', min: 0, max: 1000, step: 10, defaultValue: [200, 700] })
+`
+          },
+          {
+            id: 'doc-select',
+            title: 'Select',
+            icon: icons.chevronDown,
+            description: 'A labeled native dropdown, restyled to match the design system.',
+            render(container) {
+              container.append(Select({
+                label: 'Country',
+                options: [{ label: 'France', value: 'fr' }, { label: 'Germany', value: 'de' }, { label: 'Japan', value: 'jp' }],
+                defaultValue: 'fr'
+              }))
+            },
+            source: `
+const country = Select({
+  label: 'Country',
+  options: [{ label: 'France', value: 'fr' }, { label: 'Japan', value: 'jp' }],
+  defaultValue: 'fr'
+})
+`
+          },
+          {
+            id: 'doc-combobox',
+            title: 'Combobox',
+            icon: icons.search,
+            description: 'A filterable, type-to-search select.',
+            render(container) {
+              container.append(Combobox({
+                label: 'Fruit',
+                placeholder: 'Search fruit...',
+                options: [{ label: 'Apple', value: 'apple' }, { label: 'Banana', value: 'banana' }, { label: 'Cherry', value: 'cherry' }, { label: 'Mango', value: 'mango' }]
+              }))
+            },
+            source: `
+const fruit = Combobox({
+  label: 'Fruit',
+  options: [{ label: 'Apple', value: 'apple' }, { label: 'Mango', value: 'mango' }],
+  onChange: (value) => console.log(value)
+})
+`
+          }
+        ]
+      },
+      {
+        id: 'cat-inputs',
+        title: 'Specialized Inputs',
+        items: [
+          {
+            id: 'doc-chipinput',
+            title: 'ChipInput',
+            icon: icons.plus,
+            description: 'A tag/chip input -- press Enter to add the typed text as a removable chip.',
+            render(container) {
+              container.append(ChipInput({ label: 'Skills', defaultValue: ['TypeScript', 'Kotlin'], placeholder: 'Add a skill...' }))
+            },
+            source: `
+const skills = ChipInput({ label: 'Skills', defaultValue: ['TypeScript'], onChange: (value) => console.log(value) })
+`
+          },
+          {
+            id: 'doc-filedropzone',
+            title: 'FileDropzone',
+            icon: icons.upload,
+            description: 'A drag-and-drop file upload zone with click-to-browse.',
+            render(container) {
+              const output = Badge('No files yet', { variant: 'outline' })
+              container.append(FileDropzone({
+                label: 'Drop files here or click to browse',
+                multiple: true,
+                onFiles: (files) => output.setLabel(files.map((f) => f.name).join(', '))
+              }), output)
+            },
+            source: `
+const dropzone = FileDropzone({ onFiles: (files) => console.log(files) })
+`
+          },
+          {
+            id: 'doc-datepicker',
+            title: 'DatePicker',
+            icon: icons.calendar,
+            description: 'A text field backed by a floating month-grid calendar popover.',
+            render(container) {
+              container.append(DatePicker({ label: 'Departure date' }))
+            },
+            source: `
+const date = DatePicker({ label: 'Departure date', onChange: (date) => console.log(date) })
+`
+          }
+        ]
+      },
+      {
+        id: 'cat-display',
+        title: 'Display',
+        items: [
+          {
+            id: 'doc-badge',
+            title: 'Badge',
+            icon: icons.circle,
+            description: 'A small pill-shaped status/label indicator.',
+            render(container) {
+              const row = document.createElement('div')
+              row.className = 'demo-row'
+              row.append(Badge('Default'), Badge('Outline', { variant: 'outline' }), Badge('Success', { variant: 'success' }), Badge('Warning', { variant: 'warning' }), Badge('Destructive', { variant: 'destructive' }))
+              container.append(row)
+            },
+            source: `
+const badge = Badge('Success', { variant: 'success' })
+`
+          },
+          {
+            id: 'doc-avatar',
+            title: 'Avatar',
+            icon: icons.circle,
+            description: 'A circular/square avatar with automatic initials fallback.',
+            render(container) {
+              const row = document.createElement('div')
+              row.className = 'demo-row'
+              row.append(Avatar({ initials: 'NR', size: 40 }), Avatar({ initials: 'PL', size: 40, shape: 'square' }))
+              container.append(row)
+            },
+            source: `
+const avatar = Avatar({ initials: 'NR', size: 40, shape: 'circle' })
+`
+          },
+          {
+            id: 'doc-modecard',
+            title: 'ModeCard',
+            icon: icons.lock,
+            description: 'A selectable, optionally lockable option card.',
+            render(container) {
+              const row = document.createElement('div')
+              row.className = 'demo-row'
+              let a, b
+              a = ModeCard({ label: 'Classic', description: 'The original mode.', icon: icons.circle, selected: true, onSelect: () => { a.setSelected(true); b.setSelected(false) } })
+              b = ModeCard({ label: 'Hardcore', description: 'For experienced players.', icon: icons.alertTriangle, onSelect: () => { a.setSelected(false); b.setSelected(true) } })
+              const c = ModeCard({ label: 'Endless', description: 'Not available yet.', icon: icons.loader, locked: true })
+              row.append(a, b, c)
+              container.append(row)
+            },
+            source: `
+const card = ModeCard({
+  label: 'Hardcore',
+  description: 'For experienced players.',
+  icon: icons.alertTriangle,
+  onSelect: () => console.log('selected')
+})
+`
+          }
+        ]
+      },
+      {
+        id: 'cat-feedback',
+        title: 'Feedback',
+        items: [
+          {
+            id: 'doc-spinner',
+            title: 'Spinner',
+            icon: icons.loader,
+            description: 'A small, continuously rotating loading indicator.',
+            render(container) {
+              const row = document.createElement('div')
+              row.className = 'demo-row'
+              row.append(Spinner({ size: 16 }), Spinner({ size: 24 }), Spinner({ size: 32 }))
+              container.append(row)
+            },
+            source: `
+const spinner = Spinner({ size: 24 })
+`
+          },
+          {
+            id: 'doc-progressbar',
+            title: 'ProgressBar',
+            icon: icons.loader,
+            description: 'A full-screen progress overlay for long-running operations.',
+            render(container) {
+              const progress = ProgressBar({ title: 'Uploading files...' })
+              document.body.appendChild(progress)
+              const trigger = Button('Simulate upload', {
+                onClick: () => {
+                  let value = 0
+                  progress.show()
+                  const interval = setInterval(() => {
+                    value += 10
+                    progress.setValue(value)
+                    if (value >= 100) { clearInterval(interval); setTimeout(() => progress.hide(), 400) }
+                  }, 200)
+                }
+              })
+              container.append(trigger)
+            },
+            source: `
+const progress = ProgressBar({ title: 'Uploading files...' })
+document.body.append(progress)
+
+progress.show()
+progress.setValue(50)
+progress.hide()
+`
+          },
+          {
+            id: 'doc-skeleton',
+            title: 'Skeleton',
+            icon: icons.minus,
+            description: 'An animated shimmering placeholder for loading content.',
+            render(container) {
+              const col = document.createElement('div')
+              col.className = 'demo-col'
+              col.style.maxWidth = '260px'
+              col.append(Skeleton({ height: 40, width: 40, radius: '50%' }), Skeleton({ width: '100%', height: 14 }), Skeleton({ width: '70%', height: 14 }))
+              container.append(col)
+            },
+            source: `
+const line = Skeleton({ width: '100%', height: 14 })
+`
+          },
+          {
+            id: 'doc-toast',
+            title: 'Toast',
+            icon: icons.info,
+            description: 'A stack-based toast notification manager mounted lazily to the page.',
+            render(container) {
+              const row = document.createElement('div')
+              row.className = 'demo-row'
+              row.append(
+                Button('Default', { onClick: () => toast.show({ title: 'Saved', description: 'Your changes were saved.' }) }),
+                Button('Success', { variant: 'outline', onClick: () => toast.show({ title: 'Success', variant: 'success' }) }),
+                Button('Warning', { variant: 'outline', onClick: () => toast.show({ title: 'Careful', variant: 'warning' }) }),
+                Button('Destructive', { variant: 'destructive', onClick: () => toast.show({ title: 'Error', description: 'Something went wrong.', variant: 'destructive' }) })
+              )
+              container.append(row)
+            },
+            source: `
+import { toast } from 'socle'
+
+toast.show({ title: 'Saved', description: 'Your changes were saved.', variant: 'success' })
+`
+          },
+          {
+            id: 'doc-alert',
+            title: 'Alert',
+            icon: icons.alertTriangle,
+            description: 'A static informational/status banner.',
+            render(container) {
+              const col = document.createElement('div')
+              col.className = 'demo-col'
+              col.append(
+                Alert('Your plan renews in 3 days.', { title: 'Heads up', variant: 'default' }),
+                Alert('This action cannot be undone.', { title: 'Danger', variant: 'destructive', dismissible: true })
+              )
+              container.append(col)
+            },
+            source: `
+const alert = Alert('This action cannot be undone.', { title: 'Danger', variant: 'destructive', dismissible: true })
+`
+          },
+          {
+            id: 'doc-tooltip',
+            title: 'Tooltip',
+            icon: icons.info,
+            description: 'Attaches a floating text tooltip to an existing element on hover/focus.',
+            render(container) {
+              const anchor = Button('Hover me', { variant: 'outline' })
+              Tooltip(anchor, 'I am a tooltip', { placement: 'top' })
+              container.append(anchor)
+            },
+            source: `
+const button = Button('Hover me', { variant: 'outline' })
+Tooltip(button, 'I am a tooltip', { placement: 'top' })
+`
+          }
+        ]
+      },
+      {
+        id: 'cat-overlays',
+        title: 'Overlays',
+        items: [
+          {
+            id: 'doc-dialog',
+            title: 'Dialog',
+            icon: icons.x,
+            description: 'A centered modal dialog with a backdrop and Escape-to-close.',
+            render(container) {
+              const dialog = Dialog({
+                title: 'Delete item',
+                content: 'Are you sure you want to delete this item? This cannot be undone.',
+                actions: [
+                  Button('Cancel', { variant: 'ghost', onClick: () => dialog.close() }),
+                  Button('Delete', { variant: 'destructive', onClick: () => dialog.close() })
+                ]
+              })
+              document.body.appendChild(dialog)
+              container.append(Button('Open dialog', { onClick: () => dialog.open() }))
+            },
+            source: `
+const dialog = Dialog({
+  title: 'Delete item',
+  content: 'Are you sure?',
+  actions: [Button('Cancel', { onClick: () => dialog.close() })]
+})
+document.body.append(dialog)
+
+dialog.open()
+`
+          },
+          {
+            id: 'doc-drawer',
+            title: 'Drawer',
+            icon: icons.chevronRight,
+            description: 'A slide-in panel anchored to a screen edge. This page uses one for its mobile navigation.',
+            render(container) {
+              const drawer = Drawer({ side: 'right', title: 'Settings', content: 'Drawer content goes here.' })
+              document.body.appendChild(drawer)
+              container.append(Button('Open drawer', { onClick: () => drawer.open() }))
+            },
+            source: `
+const drawer = Drawer({ side: 'right', title: 'Settings', content: mySettingsForm })
+document.body.append(drawer)
+
+drawer.open()
+`
+          },
+          {
+            id: 'doc-popover',
+            title: 'Popover',
+            icon: icons.info,
+            description: 'A floating panel anchored to another element, toggled by clicking it.',
+            render(container) {
+              const anchor = Button('Show popover', { variant: 'outline' })
+              const content = document.createElement('div')
+              content.textContent = 'Popover content, positioned automatically.'
+              content.style.fontSize = '12px'
+              Popover({ anchor, content })
+              container.append(anchor)
+            },
+            source: `
+const anchor = Button('Show popover', { variant: 'outline' })
+Popover({ anchor, content: 'Popover content' })
+`
+          },
+          {
+            id: 'doc-dropdownmenu',
+            title: 'DropdownMenu',
+            icon: icons.chevronDown,
+            description: 'A floating action menu anchored to another element.',
+            render(container) {
+              const anchor = Button('Actions', { icon: icons.chevronDown, iconPosition: 'end', variant: 'outline' })
+              const output = Badge('No action yet', { variant: 'outline' })
+              DropdownMenu({
+                anchor,
+                items: [
+                  { label: 'Edit', value: 'edit', icon: icons.edit },
+                  { label: 'Duplicate', value: 'duplicate', icon: icons.copy },
+                  { label: 'Download', value: 'download', icon: icons.download },
+                  { separator: true },
+                  { label: 'Delete', value: 'delete', icon: icons.trash, destructive: true }
+                ],
+                onSelect: (value) => output.setLabel(`Selected: ${value}`)
+              })
+              container.append(anchor, output)
+            },
+            source: `
+DropdownMenu({
+  anchor: myButton,
+  items: [
+    { label: 'Edit', value: 'edit', icon: icons.edit },
+    { separator: true },
+    { label: 'Delete', value: 'delete', destructive: true }
+  ],
+  onSelect: (value) => console.log(value)
+})
+`
+          },
+          {
+            id: 'doc-contextmenu',
+            title: 'ContextMenu',
+            icon: icons.moreHorizontal,
+            description: 'Replaces the native right-click menu on a target element.',
+            render(container) {
+              const zone = document.createElement('div')
+              zone.className = 'ctx-zone'
+              zone.textContent = 'Right-click inside this box'
+              ContextMenu({
+                target: zone,
+                items: [{ label: 'Copy', value: 'copy', icon: icons.copy }, { label: 'Paste', value: 'paste' }, { separator: true }, { label: 'Delete', value: 'delete', destructive: true }]
+              })
+              container.append(zone)
+            },
+            source: `
+ContextMenu({
+  target: myElement,
+  items: [{ label: 'Copy', value: 'copy' }, { label: 'Delete', value: 'delete', destructive: true }]
+})
+`
+          }
+        ]
+      },
+      {
+        id: 'cat-navigation',
+        title: 'Navigation',
+        items: [
+          {
+            id: 'doc-tabs',
+            title: 'Tabs',
+            icon: icons.chevronRight,
+            description: 'A tabbed container swapping panel content per active tab. Used throughout this page.',
+            render(container) {
+              const panelA = document.createElement('div')
+              panelA.textContent = 'Content for tab A'
+              const panelB = document.createElement('div')
+              panelB.textContent = 'Content for tab B'
+              container.append(Tabs({ items: [{ label: 'Tab A', value: 'a', content: panelA }, { label: 'Tab B', value: 'b', content: panelB }] }))
+            },
+            source: `
+const tabs = Tabs({
+  items: [
+    { label: 'Tab A', value: 'a', content: panelA },
+    { label: 'Tab B', value: 'b', content: panelB }
+  ]
+})
+`
+          },
+          {
+            id: 'doc-accordion',
+            title: 'Accordion',
+            icon: icons.chevronDown,
+            description: 'A set of collapsible sections, single- or multi-open.',
+            render(container) {
+              const c1 = document.createElement('div')
+              c1.textContent = 'Socle has zero runtime dependencies and injects its own CSS.'
+              const c2 = document.createElement('div')
+              c2.textContent = 'Yes -- every component works identically from plain JavaScript.'
+              container.append(Accordion({
+                items: [
+                  { label: 'Does it need Tailwind?', value: 'q1', content: c1 },
+                  { label: 'Does it work without TypeScript?', value: 'q2', content: c2 }
+                ],
+                defaultOpen: ['q1']
+              }))
+            },
+            source: `
+const faq = Accordion({
+  items: [{ label: 'Question', value: 'q1', content: myAnswerElement }],
+  multiple: true
+})
+`
+          },
+          {
+            id: 'doc-breadcrumb',
+            title: 'Breadcrumb',
+            icon: icons.chevronRight,
+            description: 'A navigational trail of crumbs separated by chevrons.',
+            render(container) {
+              container.append(Breadcrumb({ items: [{ label: 'Home', onClick: () => { } }, { label: 'Components', onClick: () => { } }, { label: 'Breadcrumb' }] }))
+            },
+            source: `
+const trail = Breadcrumb({
+  items: [{ label: 'Home', onClick: goHome }, { label: 'Current page' }]
+})
+`
+          },
+          {
+            id: 'doc-pagination',
+            title: 'Pagination',
+            icon: icons.moreHorizontal,
+            description: 'A page-number navigator with smart ellipsis collapsing.',
+            render(container) {
+              const label = document.createElement('div')
+              const pagination = Pagination({
+                pageCount: 12,
+                defaultPage: 1,
+                onChange: (page) => { label.textContent = `Page: ${page}` }
+              })
+              label.textContent = 'Page: 1'
+              container.append(pagination, label)
+            },
+            source: `
+const pagination = Pagination({ pageCount: 12, onChange: (page) => console.log(page) })
+`
+          }
+        ]
+      },
+      {
+        id: 'cat-data',
+        title: 'Data Display',
+        items: [
+          {
+            id: 'doc-table',
+            title: 'Table',
+            icon: icons.moreHorizontal,
+            description: 'A data table with optional click-to-sort headers.',
+            render(container) {
+              container.append(Table({
+                columns: [{ key: 'name', header: 'Name', sortable: true }, { key: 'role', header: 'Role' }],
+                rows: [{ name: 'Ada Lovelace', role: 'Engineer' }, { name: 'Grace Hopper', role: 'Admiral' }, { name: 'Alan Turing', role: 'Mathematician' }]
+              }))
+            },
+            source: `
+const table = Table({
+  columns: [{ key: 'name', header: 'Name', sortable: true }, { key: 'role', header: 'Role' }],
+  rows: people
+})
+`
+          },
+          {
+            id: 'doc-list',
+            title: 'List',
+            icon: icons.moreHorizontal,
+            description: 'A vertical list of rows, optionally single-selectable. Powers this page\u2019s sidebar.',
+            render(container) {
+              container.append(List({
+                items: [
+                  { label: 'Inbox', value: 'inbox', icon: icons.circle, description: '12 unread' },
+                  { label: 'Sent', value: 'sent', icon: icons.check },
+                  { label: 'Trash', value: 'trash', icon: icons.trash }
+                ]
+              }))
+            },
+            source: `
+const list = List({
+  items: [{ label: 'Inbox', value: 'inbox', description: '12 unread' }],
+  onChange: (value) => console.log(value)
+})
+`
+          },
+          {
+            id: 'doc-tree',
+            title: 'Tree',
+            icon: icons.chevronRight,
+            description: 'A recursively nested, expandable tree of nodes.',
+            render(container) {
+              container.append(Tree({
+                nodes: [
+                  { label: 'src', value: 'src', children: [{ label: 'components', value: 'components', children: [{ label: 'Button.ts', value: 'button' }] }, { label: 'index.ts', value: 'index' }] },
+                  { label: 'package.json', value: 'pkg' }
+                ],
+                defaultExpanded: ['src']
+              }))
+            },
+            source: `
+const tree = Tree({
+  nodes: [{ label: 'src', value: 'src', children: [{ label: 'index.ts', value: 'index' }] }],
+  onSelect: (value) => console.log(value)
+})
+`
+          }
+        ]
+      },
+      {
+        id: 'cat-icons',
+        title: 'Icons',
+        items: [
+          {
+            id: 'doc-icons',
+            title: 'Icon system',
+            icon: icons.circle,
+            description: 'Every icon is a real, standalone SVG component, framework-agnostic, and interchangeable with icons from your own lucide clone.',
+            render(container) {
+              const grid = document.createElement('div')
+              grid.className = 'icon-grid'
+              for (const name in icons) {
+                const cell = document.createElement('div')
+                cell.className = 'icon-cell'
+                const svg = Icon(icons[name], 20)
+                cell.append(svg, document.createTextNode(name))
+                grid.appendChild(cell)
+              }
+              container.append(grid)
+            },
+            source: `
+import { Icon, icons } from 'socle/svg'
+
+const checkIcon = Icon(icons.check, 18)
+const myIcon = Icon(myLucideCloneIcons.rocket, 18)
+`
+          }
+        ]
+      }
+    ]
+
+    function scrollToId(id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+
+    const nav = Accordion({
+      multiple: true,
+      defaultOpen: categories.map((c) => c.id),
+      items: categories.map((category) => ({
+        label: category.title,
+        value: category.id,
+        content: List({
+          items: category.items.map((item) => ({ label: item.title, value: item.id, icon: item.icon })),
+          onChange: scrollToId
+        })
+      }))
+    })
+
+    /**
+     * Filters the sidebar's rendered rows by label text. Targets Socle's own
+     * namespaced, stable classNames (`.socle-list-item*`) -- safe to rely on
+     * since every classname in the library is prefixed and documented.
+     */
+    const navSearch = TextField({
+      icon: icons.search,
+      placeholder: 'Search components...',
+      onChange: (value) => {
+        const query = value.trim().toLowerCase()
+        nav.querySelectorAll('.socle-list-item').forEach((row) => {
+          const label = row.querySelector('.socle-list-item-label')?.textContent.toLowerCase() ?? ''
+          row.classList.toggle('nav-item-hidden', query.length > 0 && !label.includes(query))
+        })
+      }
+    })
+    navSearch.classList.add('nav-search')
+
+    const main = document.createElement('main')
+    main.id = 'app-main'
+    for (const category of categories) {
+      const categoryHeading = document.createElement('div')
+      categoryHeading.className = 'category-heading'
+      categoryHeading.textContent = category.title
+      main.appendChild(categoryHeading)
+      for (const item of category.items) main.appendChild(docEntry(item))
+    }
+
+    const layout = document.createElement('div')
+    layout.id = 'app-layout'
+    const asideNav = document.createElement('aside')
+    asideNav.id = 'app-nav'
+    asideNav.append(navSearch, nav)
+    layout.append(asideNav, main)
+
+    // Mobile navigation: the same `nav` element is moved between the desktop
+    // sidebar and a Drawer, rather than duplicated, so there's only ever one
+    // live Accordion instance.
+    const navDrawer = Drawer({ side: 'left', title: 'Navigate', content: '' })
+    document.body.appendChild(navDrawer)
+    menuButton.addEventListener('click', () => {
+      navDrawer.body.append(navSearch, nav)
+      navDrawer.open()
+    })
+    navDrawer.setOnOpenChange?.((open) => {
+      if (!open) asideNav.append(navSearch, nav)
+    })
+    // Fallback for engines without onOpenChange wiring on an existing instance:
+    // reattach to the sidebar whenever the drawer's close button/backdrop/Escape fires.
+    navDrawer.addEventListener('transitionend', () => {
+      if (!navDrawer.isOpen()) asideNav.append(navSearch, nav)
+    })
+
+    const app = document.getElementById('app')
+    app.append(header, layout)
+  </script>
+</body>
+
+</html>
