@@ -46,6 +46,7 @@ export const modeCardCss = `
 .pendentive-mode-card.pendentive-selected { border-color: var(--pendentive-primary); box-shadow: 0 0 0 1px var(--pendentive-primary) }
 .pendentive-mode-card.pendentive-locked { opacity: 0.45; cursor: not-allowed }
 .pendentive-mode-card-icon { color: var(--pendentive-foreground) }
+.pendentive-mode-card-text { display: flex; flex-direction: column; gap: 2px }
 .pendentive-mode-card-title { font-weight: 600; font-size: 13px }
 .pendentive-mode-card-description { font-size: 11px; color: var(--pendentive-muted-foreground) }
 `
@@ -59,6 +60,7 @@ export function ModeCard(options: ModeCardOptions): ModeCardElement {
   const lockedMessage = options.lockedMessage ?? 'Coming in the next update'
   const root = el('button', px('mode-card'))
   root.type = 'button'
+  root.setAttribute('role', 'button')
   const iconWrap = el('div', px('mode-card-icon'))
   const textWrap = el('div', px('mode-card-text'))
   const titleEl = el('div', px('mode-card-title'))
@@ -73,6 +75,8 @@ export function ModeCard(options: ModeCardOptions): ModeCardElement {
     root.classList.toggle(px('locked'), locked)
     root.classList.toggle(px('selected'), selected)
     root.disabled = locked
+    root.setAttribute('aria-pressed', String(selected))
+    root.setAttribute('aria-disabled', String(locked))
   }
   render()
   root.append(iconWrap, textWrap)

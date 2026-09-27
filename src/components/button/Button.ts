@@ -82,6 +82,7 @@ export const buttonCss = `
 .pendentive-button-ghost:hover:not(:disabled) { background: var(--pendentive-accent); color: var(--pendentive-foreground) }
 .pendentive-button-destructive { background: var(--pendentive-destructive); color: var(--pendentive-destructive-foreground) }
 .pendentive-button-destructive:hover:not(:disabled) { filter: brightness(0.92) }
+.pendentive-button-label { display: inline-flex; align-items: center }
 `
 
 /**

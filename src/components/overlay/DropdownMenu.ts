@@ -33,15 +33,20 @@ function isSeparator(entry: MenuEntry): entry is MenuSeparator {
   return 'separator' in entry
 }
 
-/** Renders `entries` into `container`, wiring up click handling. Shared by `DropdownMenu` and `ContextMenu`. */
+/** Renders `entries` into `container`, wiring up click handling and ARIA roles. Shared by `DropdownMenu` and `ContextMenu`. */
 export function renderMenuEntries(container: HTMLElement, entries: MenuEntry[], onSelect: (value: string) => void, onAfterSelect: () => void): void {
   container.replaceChildren()
+  container.setAttribute('role', 'menu')
   for (const entry of entries) {
     if (isSeparator(entry)) {
-      container.appendChild(el('div', px('menu-separator')))
+      const separatorEl = el('div', px('menu-separator'))
+      separatorEl.setAttribute('role', 'separator')
+      container.appendChild(separatorEl)
       continue
     }
     const item = el('div', cx(px('menu-item'), entry.disabled && px('menu-item-disabled'), entry.destructive && px('menu-item-destructive')))
+    item.setAttribute('role', 'menuitem')
+    if (entry.disabled) item.setAttribute('aria-disabled', 'true')
     if (entry.icon) item.appendChild(Icon(entry.icon, 14, { className: px('icon') })!)
     const label = document.createElement('span')
     label.textContent = entry.label
@@ -91,28 +96,66 @@ export const menuCss = `
 .pendentive-menu { position: fixed; z-index: 1200; min-width: 160px; background: var(--pendentive-card); border: 1px solid var(--pendentive-border); border-radius: var(--pendentive-radius-md); padding: 4px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) }
 .pendentive-menu-item { display: flex; align-items: center; gap: 8px; padding: 7px 8px; border-radius: var(--pendentive-radius-sm); font-size: 12px; color: var(--pendentive-foreground); cursor: pointer }
 .pendentive-menu-item:hover:not(.pendentive-menu-item-disabled) { background: var(--pendentive-accent) }
+.pendentive-menu-item-highlighted:not(.pendentive-menu-item-disabled) { background: var(--pendentive-accent) }
 .pendentive-menu-item-disabled { opacity: 0.5; cursor: not-allowed }
 .pendentive-menu-item-destructive { color: var(--pendentive-destructive) }
 .pendentive-menu-separator { height: 1px; background: var(--pendentive-border); margin: 4px 0 }
 `
 
-/** Creates a floating action menu anchored to another element, toggled by clicking that anchor. */
+/** Creates a floating action menu anchored to another element, toggled by clicking that anchor, with full arrow-key navigation. */
 export function DropdownMenu(options: DropdownMenuOptions): DropdownMenuElement {
   assertDom('DropdownMenu')
   ensureComponentStyles('menu', menuCss)
   const { anchor, placement = 'bottom' } = options
   let items = options.items
   let isOpen = false
+  let highlighted = -1
   let unbindOutside: (() => void) | null = null
   let unbindEscape: (() => void) | null = null
   const menu = el('div', cx(px('menu'), px('hidden')))
+  menu.tabIndex = -1
   renderMenuEntries(menu, items, (value) => options.onSelect?.(value), close)
+
+  function getFocusableItems(): HTMLElement[] {
+    return Array.from(menu.querySelectorAll<HTMLElement>(`.${px('menu-item')}:not(.${px('menu-item-disabled')})`))
+  }
+  function setHighlighted(index: number): void {
+    const focusable = getFocusableItems()
+    focusable.forEach((item) => item.classList.remove(px('menu-item-highlighted')))
+    if (index < 0 || index >= focusable.length) {
+      highlighted = -1
+      return
+    }
+    highlighted = index
+    const item = focusable[index]
+    if (!item) return
+    item.classList.add(px('menu-item-highlighted'))
+    item.scrollIntoView({ block: 'nearest' })
+  }
+  function handleMenuKeydown(event: KeyboardEvent): void {
+    const focusable = getFocusableItems()
+    if (focusable.length === 0) return
+    if (event.key === 'ArrowDown') {
+      event.preventDefault()
+      setHighlighted(highlighted < focusable.length - 1 ? highlighted + 1 : 0)
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault()
+      setHighlighted(highlighted > 0 ? highlighted - 1 : focusable.length - 1)
+    } else if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      focusable[highlighted]?.click()
+    }
+  }
+
   function open(): void {
     if (isOpen) return
     isOpen = true
+    highlighted = -1
     document.body.appendChild(menu)
     menu.classList.remove(px('hidden'))
     positionFloating(anchor, menu, placement)
+    menu.addEventListener('keydown', handleMenuKeydown)
+    menu.focus()
     unbindOutside = onClickOutside([anchor, menu], close)
     unbindEscape = onEscapeKey(close)
   }
@@ -120,6 +163,7 @@ export function DropdownMenu(options: DropdownMenuOptions): DropdownMenuElement 
     if (!isOpen) return
     isOpen = false
     menu.classList.add(px('hidden'))
+    menu.removeEventListener('keydown', handleMenuKeydown)
     menu.remove()
     unbindOutside?.()
     unbindOutside = null
@@ -145,6 +189,7 @@ export function DropdownMenu(options: DropdownMenuOptions): DropdownMenuElement 
     },
     destroy() {
       anchor.removeEventListener('click', anchorListener)
+      menu.removeEventListener('keydown', handleMenuKeydown)
       unbindOutside?.()
       unbindEscape?.()
       menu.remove()

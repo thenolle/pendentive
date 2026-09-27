@@ -88,12 +88,22 @@ export function RangeSlider(options: RangeSliderOptions): RangeSliderElement {
     input.step = String(step)
     input.disabled = options.disabled ?? false
   }
+  inputLow.setAttribute('aria-label', `${options.label} minimum`)
+  inputHigh.setAttribute('aria-label', `${options.label} maximum`)
+  /** Raises `front`'s z-index above `back`'s so its thumb wins hit-testing when the two overlap. */
+  function raise(front: HTMLInputElement, back: HTMLInputElement): void {
+    front.style.zIndex = '2'
+    back.style.zIndex = '1'
+  }
+  raise(inputLow, inputHigh)
   function syncDisplay(): void {
     valueEl.textContent = `${format(low)} - ${format(high)}`
     inputLow.value = String(low)
     inputHigh.value = String(high)
     track.style.setProperty('--pendentive-range-low', `${((low - min) / (max - min)) * 100}%`)
     track.style.setProperty('--pendentive-range-high', `${((high - min) / (max - min)) * 100}%`)
+    // Whichever thumb sits closer to the far edge is the harder one to grab -- keep it on top by default.
+    if (high - low < (max - min) * 0.05) raise(low > min + (max - min) / 2 ? inputLow : inputHigh, low > min + (max - min) / 2 ? inputHigh : inputLow)
   }
   syncDisplay()
   const lowListener = (): void => {
@@ -106,8 +116,12 @@ export function RangeSlider(options: RangeSliderOptions): RangeSliderElement {
     syncDisplay()
     onChange?.([low, high])
   }
+  const lowPointerDown = (): void => raise(inputLow, inputHigh)
+  const highPointerDown = (): void => raise(inputHigh, inputLow)
   inputLow.addEventListener('input', lowListener)
   inputHigh.addEventListener('input', highListener)
+  inputLow.addEventListener('pointerdown', lowPointerDown)
+  inputHigh.addEventListener('pointerdown', highPointerDown)
   track.append(inputLow, inputHigh)
   root.append(header, track)
   const api: RangeSliderApi = {
@@ -125,6 +139,8 @@ export function RangeSlider(options: RangeSliderOptions): RangeSliderElement {
     destroy() {
       inputLow.removeEventListener('input', lowListener)
       inputHigh.removeEventListener('input', highListener)
+      inputLow.removeEventListener('pointerdown', lowPointerDown)
+      inputHigh.removeEventListener('pointerdown', highPointerDown)
       root.remove()
     }
   }

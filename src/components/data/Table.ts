@@ -72,9 +72,10 @@ export function Table<TRow>(options: TableOptions<TRow>): TableElement<TRow> {
     const headRow = document.createElement('tr')
     for (const column of options.columns) {
       const th = document.createElement('th')
-      th.className = cx(px('table-sortable-cell'), column.sortable && px('table-sortable'))
+      th.className = cx(column.sortable && px('table-sortable'))
       th.textContent = column.header
       if (column.sortable) {
+        th.setAttribute('aria-sort', sortKey === column.key ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none')
         if (sortKey === column.key) {
           const sortIcon = Icon(sortDirection === 'asc' ? icons.chevronUp : icons.chevronDown, 12, { className: px('table-sort-icon') })
           if (sortIcon) th.appendChild(sortIcon)

@@ -40,18 +40,19 @@ document.body.append(button)
 
 ## Components
 
-| Category | Components |
-|---|---|
-| Buttons | Button, ButtonGroup |
-| Layout | Section, Card, Separator |
-| Form fields | TextField, TextArea, NumberField, ColorField |
-| Selection controls | Checkbox, RadioGroup, Switch, Slider, RangeSlider, Select, Combobox |
-| Specialized inputs | ChipInput, FileDropzone, DatePicker |
-| Display | Badge, Avatar, ModeCard |
-| Feedback | Spinner, ProgressBar, Skeleton, Toast, Alert |
-| Overlays | Tooltip, Dialog, Drawer, Popover, DropdownMenu, ContextMenu |
-| Navigation | Tabs, Accordion, Breadcrumb, Pagination |
-| Data display | Table, List, Tree |
+| Category           | Components                                                                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------ |
+| Buttons            | Button, ButtonGroup, CopyButton                                                                  |
+| Layout             | AspectRatio, Card, Resizable, ScrollArea, Section, Separator                                     |
+| Form fields        | ColorField, Label, NumberField, TextArea, TextField                                              |
+| Selection controls | Checkbox, Combobox, RadioGroup, RangeSlider, Rating, Select, Slider, Switch, Toggle, ToggleGroup |
+| Specialized inputs | ChipInput, DatePicker, FileDropzone, InputOTP                                                    |
+| Display            | Avatar, Badge, Carousel, Kbd, ModeCard                                                           |
+| Feedback           | Alert, EmptyState, ProgressBar, Skeleton, Spinner, Toast                                         |
+| Overlays           | AlertDialog, Command, ContextMenu, Dialog, Drawer, DropdownMenu, HoverCard, Popover, Tooltip     |
+| Navigation         | Accordion, Breadcrumb, Collapsible, Menubar, Pagination, Tabs                                    |
+| Data display       | List, Table, Timeline, Tree, VirtualList                                                         |
+| Developer tools    | RenderPulse                                                                                      |
 
 Every component ships its own CSS alongside its code -- import only what you use, and only that component's styles are ever injected.
 

@@ -112,6 +112,11 @@ export function Combobox(options: ComboboxOptions): ComboboxElement {
     close()
     onChange?.(value)
   }
+  /** Reverts the visible text to whatever label matches the current committed `value`, discarding any unmatched typed text. */
+  function syncInputToValue(): void {
+    query = items.find((item) => item.value === value)?.label ?? ''
+    input.value = query
+  }
   function open(): void {
     if (isOpen || input.disabled) return
     isOpen = true
@@ -129,6 +134,7 @@ export function Combobox(options: ComboboxOptions): ComboboxElement {
     list.remove()
     unbindOutside?.()
     unbindOutside = null
+    syncInputToValue()
   }
   const inputListener = (): void => {
     query = input.value
@@ -166,11 +172,11 @@ export function Combobox(options: ComboboxOptions): ComboboxElement {
     },
     setValue(newValue) {
       value = newValue
-      query = items.find((item) => item.value === newValue)?.label ?? ''
-      input.value = query
+      syncInputToValue()
     },
     setOptions(newOptions) {
       items = newOptions
+      syncInputToValue()
       if (isOpen) renderList()
     },
     open,

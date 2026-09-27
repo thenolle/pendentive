@@ -121,6 +121,12 @@ function isRange(value: Date | DateRange | undefined): value is DateRange {
   return Boolean(value) && typeof value === 'object' && 'from' in (value as object)
 }
 
+function clampDate(date: Date, min: Date | undefined, max: Date | undefined): Date {
+  if (min && date < min) return min
+  if (max && date > max) return max
+  return date
+}
+
 function buildWeekdayLabels(weekStartsOn: WeekStartsOn): string[] {
   const base = new Date(2021, 0, 3) // a Sunday
   const labels: string[] = []
@@ -232,6 +238,14 @@ export function DatePicker(options: DatePickerOptions = {}): DatePickerElement {
     }
   }
 
+  function clearValue(): void {
+    value = undefined
+    rangeAnchor = null
+    input.value = ''
+    syncClearButton()
+    onChange?.(undefined)
+  }
+
   function handleDayClick(date: Date): void {
     if (isDisabledDate(date)) return
     if (mode === 'range') {
@@ -239,6 +253,7 @@ export function DatePicker(options: DatePickerOptions = {}): DatePickerElement {
         rangeAnchor = date
         value = { from: date }
         input.value = formatValue(value)
+        syncClearButton()
         renderCalendar()
       } else {
         const from = rangeAnchor <= date ? rangeAnchor : date
@@ -320,6 +335,7 @@ export function DatePicker(options: DatePickerOptions = {}): DatePickerElement {
       dayButtonsByTime.set(new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime(), dayButton)
       grid.appendChild(dayButton)
     }
+    grid.addEventListener('mouseleave', () => updateHoverPreview(null))
     calendar.append(header, weekdaysRow, grid)
     if (showTodayButton || showClearButton) {
       const footer = el('div', px('calendar-footer'))
@@ -340,11 +356,7 @@ export function DatePicker(options: DatePickerOptions = {}): DatePickerElement {
         clearFooterButton.type = 'button'
         clearFooterButton.textContent = 'Clear'
         clearFooterButton.addEventListener('click', () => {
-          value = undefined
-          rangeAnchor = null
-          input.value = ''
-          syncClearButton()
-          onChange?.(undefined)
+          clearValue()
           renderCalendar()
         })
         footer.appendChild(clearFooterButton)
@@ -357,7 +369,7 @@ export function DatePicker(options: DatePickerOptions = {}): DatePickerElement {
     const deltas: Record<string, number> = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -7, ArrowDown: 7 }
     if (event.key in deltas) {
       event.preventDefault()
-      focusedDate = addDays(focusedDate, deltas[event.key] as number)
+      focusedDate = clampDate(addDays(focusedDate, deltas[event.key] as number), min, max)
       if (focusedDate.getMonth() !== viewDate.getMonth() || focusedDate.getFullYear() !== viewDate.getFullYear()) viewDate = startOfMonth(focusedDate)
       renderCalendar()
       focusDayButton(focusedDate)
@@ -405,11 +417,7 @@ export function DatePicker(options: DatePickerOptions = {}): DatePickerElement {
   calendarIcon.addEventListener('click', toggleListener)
   clearButton.addEventListener('click', (event) => {
     event.stopPropagation()
-    value = undefined
-    rangeAnchor = null
-    input.value = ''
-    syncClearButton()
-    onChange?.(undefined)
+    clearValue()
     if (isOpen) renderCalendar()
   })
   const api: DatePickerApi = {
